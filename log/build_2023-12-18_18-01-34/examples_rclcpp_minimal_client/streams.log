@@ -1,0 +1,52 @@
+[0.243s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_client': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/davide/sesasr_labs/install/launch_testing_examples:/home/davide/sesasr_labs/install/examples_rclpy_pointcloud_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_subscriber:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_server:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client:/home/davide/sesasr_labs/install/examples_rclpy_guard_conditions:/home/davide/sesasr_labs/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake /home/davide/sesasr_labs/src/examples/rclcpp/services/minimal_client -DCMAKE_INSTALL_PREFIX=/home/davide/sesasr_labs/install/examples_rclcpp_minimal_client
+[0.313s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.398s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.403s] -- Found example_interfaces: 0.9.3 (/opt/ros/humble/share/example_interfaces/cmake)
+[0.518s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.519s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.524s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.534s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.547s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.672s] -- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+[0.712s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.714s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[4.882s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[5.033s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.103s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.104s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.104s] -- Configured cppcheck include dirs: 
+[5.105s] -- Configured cppcheck exclude dirs and/or files: 
+[5.105s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[5.106s] -- Configured cpplint exclude dirs and/or files: 
+[5.106s] -- Added test 'lint_cmake' to check CMake code style
+[5.106s] -- Added test 'uncrustify' to check C / C++ code style
+[5.107s] -- Configured uncrustify additional arguments: 
+[5.107s] -- Added test 'xmllint' to check XML markup files
+[5.108s] -- Configuring done
+[5.113s] -- Generating done
+[5.115s] -- Build files have been written to: /home/davide/sesasr_labs/build/examples_rclcpp_minimal_client
+[5.351s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_client' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/davide/sesasr_labs/install/launch_testing_examples:/home/davide/sesasr_labs/install/examples_rclpy_pointcloud_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_subscriber:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_server:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client:/home/davide/sesasr_labs/install/examples_rclpy_guard_conditions:/home/davide/sesasr_labs/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake /home/davide/sesasr_labs/src/examples/rclcpp/services/minimal_client -DCMAKE_INSTALL_PREFIX=/home/davide/sesasr_labs/install/examples_rclcpp_minimal_client
+[5.352s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_client': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/davide/sesasr_labs/install/launch_testing_examples:/home/davide/sesasr_labs/install/examples_rclpy_pointcloud_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_subscriber:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_server:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client:/home/davide/sesasr_labs/install/examples_rclpy_guard_conditions:/home/davide/sesasr_labs/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/davide/sesasr_labs/build/examples_rclcpp_minimal_client -- -j8 -l8
+[5.379s] [35m[1mConsolidate compiler generated dependencies of target client_main[0m
+[5.391s] [100%] Built target client_main
+[5.440s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_client' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/davide/sesasr_labs/install/launch_testing_examples:/home/davide/sesasr_labs/install/examples_rclpy_pointcloud_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_subscriber:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_server:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client:/home/davide/sesasr_labs/install/examples_rclpy_guard_conditions:/home/davide/sesasr_labs/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/davide/sesasr_labs/build/examples_rclcpp_minimal_client -- -j8 -l8
+[5.462s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_client': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/davide/sesasr_labs/install/launch_testing_examples:/home/davide/sesasr_labs/install/examples_rclpy_pointcloud_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_subscriber:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_server:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client:/home/davide/sesasr_labs/install/examples_rclpy_guard_conditions:/home/davide/sesasr_labs/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/davide/sesasr_labs/build/examples_rclcpp_minimal_client
+[5.467s] -- Install configuration: ""
+[5.468s] -- Execute custom install script
+[5.468s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/lib/examples_rclcpp_minimal_client/client_main
+[5.468s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_client
+[5.469s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_client
+[5.469s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/environment/ament_prefix_path.sh
+[5.469s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/environment/ament_prefix_path.dsv
+[5.470s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/environment/path.sh
+[5.470s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/environment/path.dsv
+[5.470s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/local_setup.bash
+[5.471s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/local_setup.sh
+[5.471s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/local_setup.zsh
+[5.471s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/local_setup.dsv
+[5.471s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/package.dsv
+[5.480s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/ament_index/resource_index/packages/examples_rclcpp_minimal_client
+[5.481s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/cmake/examples_rclcpp_minimal_clientConfig.cmake
+[5.482s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/cmake/examples_rclcpp_minimal_clientConfig-version.cmake
+[5.482s] -- Up-to-date symlink: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_client/share/examples_rclcpp_minimal_client/package.xml
+[5.643s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_client' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/davide/sesasr_labs/install/launch_testing_examples:/home/davide/sesasr_labs/install/examples_rclpy_pointcloud_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_subscriber:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_server:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client:/home/davide/sesasr_labs/install/examples_rclpy_guard_conditions:/home/davide/sesasr_labs/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/davide/sesasr_labs/build/examples_rclcpp_minimal_client

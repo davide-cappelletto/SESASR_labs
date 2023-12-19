@@ -1,0 +1,88 @@
+[0.137s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/davide/sesasr_labs/src/examples/rclcpp/composition/minimal_composition -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition
+[0.314s] -- The C compiler identification is GNU 11.4.0
+[0.656s] -- The CXX compiler identification is GNU 11.4.0
+[1.013s] -- Detecting C compiler ABI info
+[1.132s] -- Detecting C compiler ABI info - done
+[1.139s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.140s] -- Detecting C compile features
+[1.140s] -- Detecting C compile features - done
+[1.143s] -- Detecting CXX compiler ABI info
+[1.280s] -- Detecting CXX compiler ABI info - done
+[1.288s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.289s] -- Detecting CXX compile features
+[1.289s] -- Detecting CXX compile features - done
+[1.293s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.438s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[1.490s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.509s] -- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+[1.608s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.613s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.619s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.630s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.645s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.717s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.721s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.358s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[3.335s] -- Found FastRTPS: /opt/ros/humble/include  
+[4.790s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.806s] -- Looking for pthread.h
+[4.971s] -- Looking for pthread.h - found
+[4.971s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[5.124s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[5.124s] -- Found Threads: TRUE  
+[5.304s] -- Found rclcpp_components: 16.0.7 (/opt/ros/humble/share/rclcpp_components/cmake)
+[5.386s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.474s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.476s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.476s] -- Configured cppcheck include dirs: /home/davide/sesasr_labs/src/examples/rclcpp/composition/minimal_composition/include
+[5.476s] -- Configured cppcheck exclude dirs and/or files: 
+[5.478s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[5.478s] -- Configured cpplint exclude dirs and/or files: 
+[5.480s] -- Added test 'lint_cmake' to check CMake code style
+[5.483s] -- Added test 'uncrustify' to check C / C++ code style
+[5.483s] -- Configured uncrustify additional arguments: 
+[5.484s] -- Added test 'xmllint' to check XML markup files
+[5.486s] -- Configuring done
+[5.506s] -- Generating done
+[5.507s] -- Build files have been written to: /home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition
+[5.522s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/davide/sesasr_labs/src/examples/rclcpp/composition/minimal_composition -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition
+[5.522s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition -- -j8 -l8
+[5.909s] [ 22%] [32mBuilding CXX object CMakeFiles/composition_nodes.dir/src/publisher_node.cpp.o[0m
+[5.909s] [ 22%] [32mBuilding CXX object CMakeFiles/composition_nodes.dir/src/subscriber_node.cpp.o[0m
+[24.061s] [ 33%] [32m[1mLinking CXX shared library libcomposition_nodes.so[0m
+[24.749s] [ 33%] Built target composition_nodes
+[24.765s] [ 44%] [32mBuilding CXX object CMakeFiles/composition_composed.dir/src/composed.cpp.o[0m
+[24.769s] [ 55%] [32mBuilding CXX object CMakeFiles/composition_subscriber.dir/src/standalone_subscriber.cpp.o[0m
+[24.777s] [ 66%] [32mBuilding CXX object CMakeFiles/composition_publisher.dir/src/standalone_publisher.cpp.o[0m
+[29.622s] [ 77%] [32m[1mLinking CXX executable composition_subscriber[0m
+[29.744s] [ 88%] [32m[1mLinking CXX executable composition_composed[0m
+[30.064s] [100%] [32m[1mLinking CXX executable composition_publisher[0m
+[30.230s] [100%] Built target composition_subscriber
+[30.375s] [100%] Built target composition_composed
+[30.748s] [100%] Built target composition_publisher
+[31.591s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition -- -j8 -l8
+[33.170s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition
+[33.266s] -- Install configuration: ""
+[33.266s] -- Execute custom install script
+[33.266s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/library_path.sh
+[33.267s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/library_path.dsv
+[33.267s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/lib/libcomposition_nodes.so
+[33.287s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/lib/examples_rclcpp_minimal_composition/composition_publisher
+[33.314s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/lib/examples_rclcpp_minimal_composition/composition_subscriber
+[33.346s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/lib/examples_rclcpp_minimal_composition/composition_composed
+[33.415s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_composition
+[33.470s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_composition
+[33.518s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/ament_prefix_path.sh
+[33.560s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/ament_prefix_path.dsv
+[33.635s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/path.sh
+[33.669s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/path.dsv
+[33.702s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.bash
+[33.743s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.sh
+[33.795s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.zsh
+[33.842s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.dsv
+[33.877s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/package.dsv
+[33.915s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/ament_index/resource_index/packages/examples_rclcpp_minimal_composition
+[33.965s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/cmake/examples_rclcpp_minimal_compositionConfig.cmake
+[33.978s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/cmake/examples_rclcpp_minimal_compositionConfig-version.cmake
+[34.057s] -- Symlinking: /home/davide/sesasr_labs/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/package.xml
+[34.106s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/davide/sesasr_labs/build/examples_rclcpp_minimal_composition

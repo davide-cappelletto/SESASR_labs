@@ -1,0 +1,60 @@
+[1.496s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclpy_executors': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_executors/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_executors/build
+[1.716s] running develop
+[1.717s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.717s]   warnings.warn(
+[1.718s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.718s]   warnings.warn(
+[1.862s] Removing /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples-rclpy-executors.egg-link (link to .)
+[1.909s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclpy_executors' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_executors/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_executors/build
+[1.909s] Invoking command in '/home/davide/sesasr_labs/src/examples/rclpy/executors': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_executors/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../build/examples_rclpy_executors build --build-base /home/davide/sesasr_labs/build/examples_rclpy_executors/build install --record /home/davide/sesasr_labs/build/examples_rclpy_executors/install.log --single-version-externally-managed
+[2.133s] running egg_info
+[2.136s] writing ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/PKG-INFO
+[2.136s] writing dependency_links to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/dependency_links.txt
+[2.136s] writing entry points to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/entry_points.txt
+[2.136s] writing requirements to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/requires.txt
+[2.137s] writing top-level names to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/top_level.txt
+[2.137s] reading manifest file '../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/SOURCES.txt'
+[2.150s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.150s]   warnings.warn(
+[2.150s] writing manifest file '../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/SOURCES.txt'
+[2.150s] running build
+[2.150s] running build_py
+[2.151s] creating /home/davide/sesasr_labs/build/examples_rclpy_executors/build
+[2.151s] creating /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib
+[2.151s] creating /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.151s] copying examples_rclpy_executors/talker.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.151s] copying examples_rclpy_executors/callback_group.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.151s] copying examples_rclpy_executors/custom_executor.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.151s] copying examples_rclpy_executors/composed.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.151s] copying examples_rclpy_executors/listener.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.151s] copying examples_rclpy_executors/__init__.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.152s] copying examples_rclpy_executors/custom_callback_group.py -> /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[2.152s] running install
+[2.152s] running install_lib
+[2.152s] creating /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/talker.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/callback_group.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/custom_executor.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/composed.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/listener.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/__init__.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] copying /home/davide/sesasr_labs/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/custom_callback_group.py -> /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[2.152s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/talker.py to talker.cpython-310.pyc
+[2.153s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/callback_group.py to callback_group.cpython-310.pyc
+[2.153s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/custom_executor.py to custom_executor.cpython-310.pyc
+[2.153s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/composed.py to composed.cpython-310.pyc
+[2.153s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/listener.py to listener.cpython-310.pyc
+[2.153s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/__init__.py to __init__.cpython-310.pyc
+[2.154s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/custom_callback_group.py to custom_callback_group.cpython-310.pyc
+[2.154s] running install_data
+[2.154s] running install_egg_info
+[2.154s] Copying ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors-0.15.1-py3.10.egg-info
+[2.154s] running install_scripts
+[2.175s] Installing callback_group script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[2.175s] Installing composed script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[2.176s] Installing custom_callback_group script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[2.176s] Installing custom_executor script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[2.176s] Installing listener script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[2.176s] Installing talker script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[2.176s] writing list of installed files to '/home/davide/sesasr_labs/build/examples_rclpy_executors/install.log'
+[2.225s] Invoked command in '/home/davide/sesasr_labs/src/examples/rclpy/executors' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_executors/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../build/examples_rclpy_executors build --build-base /home/davide/sesasr_labs/build/examples_rclpy_executors/build install --record /home/davide/sesasr_labs/build/examples_rclpy_executors/install.log --single-version-externally-managed

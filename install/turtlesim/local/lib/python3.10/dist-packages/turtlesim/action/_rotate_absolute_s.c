@@ -1,0 +1,1 @@
+/home/davide/sesasr_labs/build/turtlesim/rosidl_generator_py/turtlesim/action/_rotate_absolute_s.c

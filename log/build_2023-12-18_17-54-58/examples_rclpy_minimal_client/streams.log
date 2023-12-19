@@ -1,0 +1,44 @@
+[1.855s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclpy_minimal_client': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build
+[2.096s] running develop
+[2.096s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[2.096s]   warnings.warn(
+[2.097s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.097s]   warnings.warn(
+[2.240s] Removing /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples-rclpy-minimal-client.egg-link (link to .)
+[2.482s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclpy_minimal_client' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build
+[2.482s] Invoking command in '/home/davide/sesasr_labs/src/examples/rclpy/services/minimal_client': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_client build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/install.log --single-version-externally-managed
+[2.690s] running egg_info
+[2.692s] writing ../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/PKG-INFO
+[2.692s] writing dependency_links to ../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/dependency_links.txt
+[2.692s] writing entry points to ../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/entry_points.txt
+[2.692s] writing requirements to ../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/requires.txt
+[2.692s] writing top-level names to ../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/top_level.txt
+[2.693s] reading manifest file '../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/SOURCES.txt'
+[2.694s] writing manifest file '../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info/SOURCES.txt'
+[2.694s] running build
+[2.694s] running build_py
+[2.695s] running install
+[2.695s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.695s]   warnings.warn(
+[2.695s] running install_lib
+[2.695s] creating /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client
+[2.696s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build/lib/examples_rclpy_minimal_client/client_async.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client
+[2.696s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build/lib/examples_rclpy_minimal_client/client_async_callback.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client
+[2.696s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build/lib/examples_rclpy_minimal_client/client.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client
+[2.696s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build/lib/examples_rclpy_minimal_client/client_async_member_function.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client
+[2.696s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build/lib/examples_rclpy_minimal_client/__init__.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client
+[2.696s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client/client_async.py to client_async.cpython-310.pyc
+[2.696s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client/client_async_callback.py to client_async_callback.cpython-310.pyc
+[2.697s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client/client.py to client.cpython-310.pyc
+[2.697s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client/client_async_member_function.py to client_async_member_function.cpython-310.pyc
+[2.697s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client/__init__.py to __init__.cpython-310.pyc
+[2.697s] running install_data
+[2.698s] running install_egg_info
+[2.699s] Copying ../../../../../build/examples_rclpy_minimal_client/examples_rclpy_minimal_client.egg-info to /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages/examples_rclpy_minimal_client-0.15.1-py3.10.egg-info
+[2.700s] running install_scripts
+[2.716s] Installing client script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/examples_rclpy_minimal_client
+[2.717s] Installing client_async script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/examples_rclpy_minimal_client
+[2.717s] Installing client_async_callback script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/examples_rclpy_minimal_client
+[2.717s] Installing client_async_member_function script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/examples_rclpy_minimal_client
+[2.717s] writing list of installed files to '/home/davide/sesasr_labs/build/examples_rclpy_minimal_client/install.log'
+[2.966s] Invoked command in '/home/davide/sesasr_labs/src/examples/rclpy/services/minimal_client' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_client build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_client/install.log --single-version-externally-managed

@@ -1,0 +1,24 @@
+[2.255s] Invoking command in '/home/davide/sesasr_labs/src/examples/rclpy/topics/minimal_publisher': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_publisher/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_publisher build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_publisher/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_publisher/install.log --single-version-externally-managed
+[2.459s] running egg_info
+[2.459s] writing ../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/PKG-INFO
+[2.460s] writing dependency_links to ../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/dependency_links.txt
+[2.460s] writing entry points to ../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/entry_points.txt
+[2.460s] writing requirements to ../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/requires.txt
+[2.460s] writing top-level names to ../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/top_level.txt
+[2.461s] reading manifest file '../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/SOURCES.txt'
+[2.462s] writing manifest file '../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info/SOURCES.txt'
+[2.462s] running build
+[2.462s] running build_py
+[2.463s] running install
+[2.463s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.463s]   warnings.warn(
+[2.463s] running install_lib
+[2.464s] running install_data
+[2.465s] running install_egg_info
+[2.466s] removing '/home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher/lib/python3.10/site-packages/examples_rclpy_minimal_publisher-0.15.1-py3.10.egg-info' (and everything under it)
+[2.467s] Copying ../../../../../build/examples_rclpy_minimal_publisher/examples_rclpy_minimal_publisher.egg-info to /home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher/lib/python3.10/site-packages/examples_rclpy_minimal_publisher-0.15.1-py3.10.egg-info
+[2.468s] running install_scripts
+[2.489s] Installing publisher_local_function script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher/lib/examples_rclpy_minimal_publisher
+[2.489s] Installing publisher_member_function script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher/lib/examples_rclpy_minimal_publisher
+[2.489s] Installing publisher_old_school script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_publisher/lib/examples_rclpy_minimal_publisher
+[2.489s] writing list of installed files to '/home/davide/sesasr_labs/build/examples_rclpy_minimal_publisher/install.log'

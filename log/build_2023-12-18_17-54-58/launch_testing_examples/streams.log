@@ -1,0 +1,44 @@
+[1.227s] Invoking command in '/home/davide/sesasr_labs/build/launch_testing_examples': PYTHONPATH=/home/davide/sesasr_labs/build/launch_testing_examples/prefix_override:/home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/launch_testing_examples/build
+[1.437s] running develop
+[1.437s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.437s]   warnings.warn(
+[1.439s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.439s]   warnings.warn(
+[1.568s] Removing /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch-testing-examples.egg-link (link to .)
+[1.601s] Invoked command in '/home/davide/sesasr_labs/build/launch_testing_examples' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/launch_testing_examples/prefix_override:/home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/launch_testing_examples/build
+[1.602s] Invoking command in '/home/davide/sesasr_labs/src/examples/launch_testing/launch_testing_examples': PYTHONPATH=/home/davide/sesasr_labs/build/launch_testing_examples/prefix_override:/home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../build/launch_testing_examples build --build-base /home/davide/sesasr_labs/build/launch_testing_examples/build install --record /home/davide/sesasr_labs/build/launch_testing_examples/install.log --single-version-externally-managed
+[1.803s] running egg_info
+[1.804s] writing ../../../../build/launch_testing_examples/launch_testing_examples.egg-info/PKG-INFO
+[1.804s] writing dependency_links to ../../../../build/launch_testing_examples/launch_testing_examples.egg-info/dependency_links.txt
+[1.805s] writing entry points to ../../../../build/launch_testing_examples/launch_testing_examples.egg-info/entry_points.txt
+[1.805s] writing requirements to ../../../../build/launch_testing_examples/launch_testing_examples.egg-info/requires.txt
+[1.805s] writing top-level names to ../../../../build/launch_testing_examples/launch_testing_examples.egg-info/top_level.txt
+[1.806s] reading manifest file '../../../../build/launch_testing_examples/launch_testing_examples.egg-info/SOURCES.txt'
+[1.807s] writing manifest file '../../../../build/launch_testing_examples/launch_testing_examples.egg-info/SOURCES.txt'
+[1.807s] running build
+[1.807s] running build_py
+[1.808s] running install
+[1.808s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.808s]   warnings.warn(
+[1.808s] running install_lib
+[1.809s] creating /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.809s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/check_multiple_nodes_launch_test.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.809s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/check_msgs_launch_test.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.809s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/record_rosbag_launch_test.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.809s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/check_node_launch_test.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.809s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/set_param_launch_test.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.809s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/__init__.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.810s] copying /home/davide/sesasr_labs/build/launch_testing_examples/build/lib/launch_testing_examples/hello_world_launch_test.py -> /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples
+[1.810s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/check_multiple_nodes_launch_test.py to check_multiple_nodes_launch_test.cpython-310.pyc
+[1.811s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/check_msgs_launch_test.py to check_msgs_launch_test.cpython-310.pyc
+[1.811s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/record_rosbag_launch_test.py to record_rosbag_launch_test.cpython-310.pyc
+[1.812s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/check_node_launch_test.py to check_node_launch_test.cpython-310.pyc
+[1.812s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/set_param_launch_test.py to set_param_launch_test.cpython-310.pyc
+[1.812s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/__init__.py to __init__.cpython-310.pyc
+[1.812s] byte-compiling /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples/hello_world_launch_test.py to hello_world_launch_test.cpython-310.pyc
+[1.813s] running install_data
+[1.813s] running install_egg_info
+[1.815s] Copying ../../../../build/launch_testing_examples/launch_testing_examples.egg-info to /home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages/launch_testing_examples-0.15.1-py3.10.egg-info
+[1.815s] running install_scripts
+[1.833s] writing list of installed files to '/home/davide/sesasr_labs/build/launch_testing_examples/install.log'
+[1.859s] Invoked command in '/home/davide/sesasr_labs/src/examples/launch_testing/launch_testing_examples' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/launch_testing_examples/prefix_override:/home/davide/sesasr_labs/install/launch_testing_examples/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../build/launch_testing_examples build --build-base /home/davide/sesasr_labs/build/launch_testing_examples/build install --record /home/davide/sesasr_labs/build/launch_testing_examples/install.log --single-version-externally-managed

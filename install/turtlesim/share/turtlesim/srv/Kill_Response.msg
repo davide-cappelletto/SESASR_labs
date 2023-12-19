@@ -1,0 +1,1 @@
+/home/davide/sesasr_labs/build/turtlesim/rosidl_cmake/srv/Kill_Response.msg

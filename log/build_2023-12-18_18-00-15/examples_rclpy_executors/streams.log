@@ -1,0 +1,26 @@
+[2.590s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclpy_executors': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_executors/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_executors/build --no-deps install_data
+[2.835s] running develop
+[2.836s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[2.836s]   warnings.warn(
+[2.837s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.837s]   warnings.warn(
+[2.998s] running egg_info
+[2.999s] writing examples_rclpy_executors.egg-info/PKG-INFO
+[2.999s] writing dependency_links to examples_rclpy_executors.egg-info/dependency_links.txt
+[2.999s] writing entry points to examples_rclpy_executors.egg-info/entry_points.txt
+[2.999s] writing requirements to examples_rclpy_executors.egg-info/requires.txt
+[2.999s] writing top-level names to examples_rclpy_executors.egg-info/top_level.txt
+[3.000s] reading manifest file 'examples_rclpy_executors.egg-info/SOURCES.txt'
+[3.000s] writing manifest file 'examples_rclpy_executors.egg-info/SOURCES.txt'
+[3.002s] running build_ext
+[3.002s] Creating /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages/examples-rclpy-executors.egg-link (link to .)
+[3.004s] Installing callback_group script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[3.005s] Installing composed script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[3.006s] Installing custom_callback_group script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[3.007s] Installing custom_executor script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[3.007s] Installing listener script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[3.007s] Installing talker script to /home/davide/sesasr_labs/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[3.007s] 
+[3.008s] Installed /home/davide/sesasr_labs/build/examples_rclpy_executors
+[3.008s] running install_data
+[3.065s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclpy_executors' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_executors/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_executors/build --no-deps install_data

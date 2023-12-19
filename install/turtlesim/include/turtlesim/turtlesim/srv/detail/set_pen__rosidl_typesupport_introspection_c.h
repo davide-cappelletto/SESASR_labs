@@ -1,0 +1,1 @@
+/home/davide/sesasr_labs/build/turtlesim/rosidl_typesupport_introspection_c/turtlesim/srv/detail/set_pen__rosidl_typesupport_introspection_c.h

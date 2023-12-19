@@ -1,0 +1,44 @@
+[0.865s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclpy_minimal_service': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_service/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build
+[1.083s] running develop
+[1.084s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.086s]   warnings.warn(
+[1.086s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.087s]   warnings.warn(
+[1.215s] Removing /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples-rclpy-minimal-service.egg-link (link to .)
+[1.619s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclpy_minimal_service' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_service/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build
+[1.620s] Invoking command in '/home/davide/sesasr_labs/src/examples/rclpy/services/minimal_service': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_service/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_service build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/install.log --single-version-externally-managed
+[1.786s] running egg_info
+[1.787s] writing ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/PKG-INFO
+[1.787s] writing dependency_links to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/dependency_links.txt
+[1.787s] writing entry points to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/entry_points.txt
+[1.788s] writing requirements to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/requires.txt
+[1.788s] writing top-level names to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/top_level.txt
+[1.789s] reading manifest file '../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/SOURCES.txt'
+[1.789s] writing manifest file '../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/SOURCES.txt'
+[1.790s] running build
+[1.790s] running build_py
+[1.790s] creating /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build
+[1.790s] creating /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib
+[1.790s] creating /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service
+[1.790s] copying examples_rclpy_minimal_service/service_member_function.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service
+[1.790s] copying examples_rclpy_minimal_service/service.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service
+[1.790s] copying examples_rclpy_minimal_service/__init__.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service
+[1.790s] running install
+[1.791s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.791s]   warnings.warn(
+[1.791s] running install_lib
+[1.791s] creating /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service
+[1.792s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service/service_member_function.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service
+[1.792s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service/service.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service
+[1.792s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build/lib/examples_rclpy_minimal_service/__init__.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service
+[1.792s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service/service_member_function.py to service_member_function.cpython-310.pyc
+[1.792s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service/service.py to service.cpython-310.pyc
+[1.793s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service/__init__.py to __init__.cpython-310.pyc
+[1.793s] running install_data
+[1.793s] running install_egg_info
+[1.794s] Copying ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info to /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service-0.15.1-py3.10.egg-info
+[1.795s] running install_scripts
+[1.811s] Installing service script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/examples_rclpy_minimal_service
+[1.811s] Installing service_member_function script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/examples_rclpy_minimal_service
+[1.811s] writing list of installed files to '/home/davide/sesasr_labs/build/examples_rclpy_minimal_service/install.log'
+[1.980s] Invoked command in '/home/davide/sesasr_labs/src/examples/rclpy/services/minimal_service' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_service/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_service/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_service build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_service/install.log --single-version-externally-managed

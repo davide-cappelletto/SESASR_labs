@@ -1,0 +1,1 @@
+/home/davide/sesasr_labs/src/examples/rclpy/services/minimal_client/setup.py

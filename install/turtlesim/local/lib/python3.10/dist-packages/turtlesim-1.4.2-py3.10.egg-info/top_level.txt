@@ -1,0 +1,1 @@
+/home/davide/sesasr_labs/build/turtlesim/ament_cmake_python/turtlesim/turtlesim.egg-info/top_level.txt

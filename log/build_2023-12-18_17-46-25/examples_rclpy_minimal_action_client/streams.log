@@ -1,0 +1,52 @@
+[1.133s] Invoking command in '/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build
+[1.369s] running develop
+[1.371s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.371s]   warnings.warn(
+[1.371s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.372s]   warnings.warn(
+[1.507s] Removing /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples-rclpy-minimal-action-client.egg-link (link to .)
+[1.760s] Invoked command in '/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build
+[1.762s] Invoking command in '/home/davide/sesasr_labs/src/examples/rclpy/actions/minimal_action_client': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_action_client build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/install.log --single-version-externally-managed
+[2.811s] running egg_info
+[2.812s] writing ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/PKG-INFO
+[2.813s] writing dependency_links to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/dependency_links.txt
+[2.816s] writing entry points to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/entry_points.txt
+[2.817s] writing requirements to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/requires.txt
+[2.818s] writing top-level names to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/top_level.txt
+[2.818s] reading manifest file '../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/SOURCES.txt'
+[2.818s] writing manifest file '../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/SOURCES.txt'
+[2.818s] running build
+[2.818s] running build_py
+[2.818s] creating /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build
+[2.818s] creating /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib
+[2.819s] creating /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client
+[2.819s] copying examples_rclpy_minimal_action_client/client_cancel.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client
+[2.819s] copying examples_rclpy_minimal_action_client/client.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client
+[2.819s] copying examples_rclpy_minimal_action_client/client_asyncio.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client
+[2.820s] copying examples_rclpy_minimal_action_client/__init__.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client
+[2.820s] copying examples_rclpy_minimal_action_client/client_not_composable.py -> /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client
+[2.820s] running install
+[2.820s] running install_lib
+[2.821s] creating /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client
+[2.821s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client/client_cancel.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client
+[2.821s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client/client.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client
+[2.821s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client/client_asyncio.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client
+[2.821s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client/__init__.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client
+[2.822s] copying /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build/lib/examples_rclpy_minimal_action_client/client_not_composable.py -> /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client
+[2.823s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client/client_cancel.py to client_cancel.cpython-310.pyc
+[2.823s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client/client.py to client.cpython-310.pyc
+[2.823s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client/client_asyncio.py to client_asyncio.cpython-310.pyc
+[2.823s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client/__init__.py to __init__.cpython-310.pyc
+[2.823s] byte-compiling /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client/client_not_composable.py to client_not_composable.cpython-310.pyc
+[2.823s] running install_data
+[2.823s] running install_egg_info
+[2.824s] Copying ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info to /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client-0.15.1-py3.10.egg-info
+[2.824s] running install_scripts
+[2.824s] Installing client script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[2.824s] Installing client_asyncio script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[2.824s] Installing client_cancel script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[2.824s] Installing client_not_composable script to /home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[2.824s] writing list of installed files to '/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/install.log'
+[2.825s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.825s]   warnings.warn(
+[2.826s] Invoked command in '/home/davide/sesasr_labs/src/examples/rclpy/actions/minimal_action_client' returned '0': PYTHONPATH=/home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/prefix_override:/home/davide/sesasr_labs/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_action_client build --build-base /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/build install --record /home/davide/sesasr_labs/build/examples_rclpy_minimal_action_client/install.log --single-version-externally-managed

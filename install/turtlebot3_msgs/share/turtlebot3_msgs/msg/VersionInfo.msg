@@ -1,0 +1,1 @@
+/home/davide/sesasr_labs/src/turtlebot3/turtlebot3_msgs/msg/VersionInfo.msg
