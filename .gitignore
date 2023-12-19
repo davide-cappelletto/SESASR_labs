@@ -1,0 +1,4 @@
+# Exclude the following folders
+build/
+install/
+log/
