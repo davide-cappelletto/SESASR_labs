@@ -1,0 +1,4 @@
+To view services in a detailed view that merges the 'service list' and the 'service type ...', use 'ros2 service list -t'.
+To find all the services of a specific type, use 'ros2 service find ...'
+To view the structure of the input arguments, se 'ros2 interface show ...'
+To call a service, use 'ros2 service call <service_name> <service_type> <arguments>'
