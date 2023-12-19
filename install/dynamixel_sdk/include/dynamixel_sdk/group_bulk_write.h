@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/src/turtlebot3/utils/DynamixelSDK/dynamixel_sdk/include/dynamixel_sdk/group_bulk_write.h

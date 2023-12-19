@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/turtlebot3_bringup/ament_cmake_core/turtlebot3_bringupConfig-version.cmake

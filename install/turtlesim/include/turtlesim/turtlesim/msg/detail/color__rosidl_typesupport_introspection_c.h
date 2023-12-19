@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/turtlesim/rosidl_typesupport_introspection_c/turtlesim/msg/detail/color__rosidl_typesupport_introspection_c.h

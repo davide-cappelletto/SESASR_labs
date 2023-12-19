@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/turtlesim/rosidl_typesupport_fastrtps_c/turtlesim/srv/detail/spawn__rosidl_typesupport_fastrtps_c.h

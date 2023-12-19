@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/dynamixel_sdk_custom_interfaces/rosidl_cmake/srv/GetPosition_Response.msg

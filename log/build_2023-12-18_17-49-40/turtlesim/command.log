@@ -1,4 +1,0 @@
-Invoking command in '/home/davide/sesasr_labs/build/turtlesim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/davide/sesasr_labs/src/ros_tutorials/turtlesim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/davide/sesasr_labs/install/turtlesim
-Invoked command in '/home/davide/sesasr_labs/build/turtlesim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/davide/sesasr_labs/src/ros_tutorials/turtlesim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/davide/sesasr_labs/install/turtlesim
-Invoking command in '/home/davide/sesasr_labs/build/turtlesim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/davide/sesasr_labs/build/turtlesim -- -j8 -l8
-Invoked command in '/home/davide/sesasr_labs/build/turtlesim' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/davide/sesasr_labs/build/turtlesim -- -j8 -l8

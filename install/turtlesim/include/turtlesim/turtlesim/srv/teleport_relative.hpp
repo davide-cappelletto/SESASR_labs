@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/turtlesim/rosidl_generator_cpp/turtlesim/srv/teleport_relative.hpp

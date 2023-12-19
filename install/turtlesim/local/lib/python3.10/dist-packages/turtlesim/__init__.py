@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/turtlesim/rosidl_generator_py/turtlesim/__init__.py

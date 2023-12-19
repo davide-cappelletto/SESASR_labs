@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/src/turtlebot3/utils/DynamixelSDK/dynamixel_sdk_custom_interfaces/msg/SetPosition.msg

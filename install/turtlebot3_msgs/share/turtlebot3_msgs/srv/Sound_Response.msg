@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/build/turtlebot3_msgs/rosidl_cmake/srv/Sound_Response.msg

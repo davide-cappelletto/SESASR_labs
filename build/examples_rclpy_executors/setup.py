@@ -1,1 +1,0 @@
-/home/davide/sesasr_labs/src/examples/rclpy/executors/setup.py
