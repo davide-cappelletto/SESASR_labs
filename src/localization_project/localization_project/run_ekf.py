@@ -7,13 +7,13 @@ import tf_transformations
 from rclpy.qos import qos_profile_sensor_data
 import math
 import time
-from ekf import RobotEKF
-from motion_models import velocity_motion_model, get_odometry_input, odometry_motion_model
-from measurement_model import range_and_bearing, z_landmark, residual
+from localization_project.ekf import RobotEKF
+from localization_project.motion_models import velocity_motion_model, get_odometry_input, odometry_motion_model
+from localization_project.measurement_model import range_and_bearing, z_landmark, residual
 
 class robot_localization_kalman_filter(Node):
     def __init__(self):
-        super().__init__('robot_localization_kalman_filter')
+        super().__init__('robot_ekf')
         self.ground_truth_sub = self.create_subscription(Odometry, '/ground_truth', qos_profile_sensor_data)
         self.odom_sub = self.create_subscription(Odometry, '/diff_drive_controller/odom', qos_profile_sensor_data)
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
