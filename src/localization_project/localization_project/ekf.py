@@ -14,7 +14,7 @@ class RobotEKF:
         self.mu = np.zeros((dim_x, 1))  # mean state estimate
         self.Sigma = np.eye(dim_x)  # covariance state estimate
         self.Mt = np.eye(dim_u)  # process noise
-        self.Qt = np.eye(dim_z)  # measurement noise
+        self.Qt = np.eye(dim_z) * 0.01  # measurement noise
 
         self.eval_gux = eval_gux
         self.eval_Gt = eval_Gt
