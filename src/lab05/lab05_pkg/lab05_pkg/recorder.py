@@ -10,16 +10,18 @@ from pathlib import Path
 import math
 
 
-
 class RecorderNode(Node):
     def __init__(self):
         super().__init__("my_node")
         self.get_logger().info("Initializing my_node")
 
         # Create the subscribers and synchronize the messages
-        self.odom_sub = message_filters.Subscriber(self, Odometry, "/diff_drive_controller/odom")
-        self.filter_sub = message_filters.Subscriber(self, Odometry, "/odometry/filtered")
-        self.ground_truth_sub = message_filters.Subscriber(self, Odometry, "/ground_truth")
+        self.odom_sub = message_filters.Subscriber(
+            self, Odometry, "/diff_drive_controller/odom")
+        self.filter_sub = message_filters.Subscriber(
+            self, Odometry, "/odometry/filtered")
+        self.ground_truth_sub = message_filters.Subscriber(
+            self, Odometry, "/ground_truth")
         self.ts = message_filters.ApproximateTimeSynchronizer(
             [self.odom_sub, self.filter_sub, self.ground_truth_sub], 10, 0.01
         )
@@ -41,9 +43,12 @@ class RecorderNode(Node):
             f"Storing data... Current lenght {len(self.odom)}", throttle_duration_sec=5.0
         )
 
-        self.odom.append([odom.pose.pose.position.x, odom.pose.pose.position.y, self.yaw_calc(odom.pose.pose.orientation)])
-        self.filter.append([filter.pose.pose.position.x, filter.pose.pose.position.y, self.yaw_calc(filter.pose.pose.orientation)])
-        self.ground_truth.append([ground_truth.pose.pose.position.x, ground_truth.pose.pose.position.y, self.yaw_calc(ground_truth.pose.pose.orientation)])
+        self.odom.append([odom.pose.pose.position.x, odom.pose.pose.position.y, self.yaw_calc(
+            odom.pose.pose.orientation)])
+        self.filter.append([filter.pose.pose.position.x, filter.pose.pose.position.y, self.yaw_calc(
+            filter.pose.pose.orientation)])
+        self.ground_truth.append([ground_truth.pose.pose.position.x, ground_truth.pose.pose.position.y, self.yaw_calc(
+            ground_truth.pose.pose.orientation)])
 
     def save_data(self):
         # adds '.npy' files to a 'stored_data' folder that was previously created. Remember to import 'Path' from 'pathlib'.
@@ -53,7 +58,7 @@ class RecorderNode(Node):
         np.save(odom_path, np.array(self.odom))
         np.save(filter_path, np.array(self.filter))
         np.save(gt_path, np.array(self.ground_truth))
-    
+
 
 def main(args=None):
     rclpy.init(args=args)
