@@ -40,7 +40,7 @@ class RecorderNode(Node):
 
     def store_data(self, odom, filter, ground_truth):
         self.get_logger().info(
-            f"Storing data... Current lenght {len(self.odom)}", throttle_duration_sec=5.0
+            f"Storing data... Current lenght: {len(self.odom)}", throttle_duration_sec=5.0
         )
 
         self.odom.append([odom.pose.pose.position.x, odom.pose.pose.position.y, self.yaw_calc(
