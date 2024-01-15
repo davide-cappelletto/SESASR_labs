@@ -7,14 +7,18 @@ from localization_project.ekf import RobotEKF
 from localization_project.motion_models import velocity_motion_model, odometry_motion_model
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
 
+
 class EKF_node(Node):
     def __init__(self):
         super().__init__('EKF_node')
 
         # Subscriptions
-        self.ground_truth_sub = self.create_subscription(Odometry, '/ground_truth', self.ground_truth_callback, 10)
-        self.odom_sub = self.create_subscription(Odometry, '/diff_drive_controller/odom', self.odometry_callback, 10)
-        self.vel_sub = self.create_subscription(Odometry, '/diff_drive_controller/odom', self.velocity_callback, 10)
+        self.ground_truth_sub = self.create_subscription(
+            Odometry, '/ground_truth', self.ground_truth_callback, 10)
+        self.odom_sub = self.create_subscription(
+            Odometry, '/diff_drive_controller/odom', self.odometry_callback, 10)
+        self.vel_sub = self.create_subscription(
+            Odometry, '/diff_drive_controller/odom', self.velocity_callback, 10)
 
         # Publishers
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
@@ -25,8 +29,10 @@ class EKF_node(Node):
             parameters=[
                 ('ekf_period_s', 1.0),
                 ('initial_pose', [-2.0, 0.0, 0.0]),
-                ('initial_covariance', [0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001]),
-                ('landmarks', [-1.1, -1.1, -1.1, 0.0, -1.1, 1.1, 0.0, -1.1, 0.0, 0.0, 0.0, 1.1, 1.1, -1.1, 1.1, 0.0, 1.1, 1.1]),
+                ('initial_covariance', [
+                 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001]),
+                ('landmarks', [-1.1, -1.1, -1.1, 0.0, -1.1, 1.1, 0.0, -
+                 1.1, 0.0, 0.0, 0.0, 1.1, 1.1, -1.1, 1.1, 0.0, 1.1, 1.1]),
                 ('std_rot1', 0.05),
                 ('std_transl', 0.05),
                 ('std_rot2', 0.05),
@@ -41,7 +47,8 @@ class EKF_node(Node):
 
         self.ekf_period_s = self.get_parameter('ekf_period_s').value
         self.initial_pose = self.get_parameter('initial_pose').value
-        self.initial_covariance = np.diag(self.get_parameter('initial_covariance').value)
+        self.initial_covariance = np.diag(
+            self.get_parameter('initial_covariance').value)
         self.lmark = self.get_parameter('landmarks').value
         self.std_rot1 = self.get_parameter('std_rot1').value
         self.std_transl = self.get_parameter('std_transl').value
@@ -83,7 +90,8 @@ class EKF_node(Node):
     def ground_truth_callback(self, msg):
         quat = [msg.pose.pose.orientation.x, msg.pose.pose.orientation.y,
                 msg.pose.pose.orientation.z, msg.pose.pose.orientation.w]
-        _, _, self.ground_truth[2] = tf_transformations.euler_from_quaternion(quat)
+        _, _, self.ground_truth[2] = tf_transformations.euler_from_quaternion(
+            quat)
         self.ground_truth[0] = msg.pose.pose.position.x
         self.ground_truth[1] = msg.pose.pose.position.y
 
@@ -92,11 +100,10 @@ class EKF_node(Node):
         self.w = msgs.twist.twist.angular.z
         print(self.v, self.w)
 
-        
-
     def run_ekf(self):
         # Perform prediction step
-        self.ekf.predict(u=np.array([[self.v, self.w]]).T, g_extra_args=[self.ekf_rate.timer_period_ns * 1e9])
+        self.ekf.predict(u=np.array([[self.v, self.w]]).T, g_extra_args=[
+                         self.ekf_rate.timer_period_ns * 1e9])
 
         # Perform update step
         for i in range(0, len(self.lmark), 2):
@@ -117,7 +124,7 @@ class EKF_node(Node):
         ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
         ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
 
-        #print("Published EKF message:", ekf_msg)
+        # print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
 
 
@@ -126,6 +133,7 @@ def main(args=None):
     kalman_filter = EKF_node()
     rclpy.spin(kalman_filter)
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
