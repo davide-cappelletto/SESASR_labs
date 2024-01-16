@@ -1,3 +1,39 @@
 {
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "python.autoComplete.extraPaths": [
+        "/home/giuseppe-deninarivera/LABS/sesasr_labs/install/my_package/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/sesasr_labs/install/localization_project/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/sesasr_labs/install/lab05_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/turtlebot3_teleop/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/turtlebot3_example/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/turtlebot3_msgs/local/lib/python3.10/dist-packages",
+        "/home/giuseppe-deninarivera/LABS/install/my_package/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/localization_project/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab05_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab03_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab02_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab02_interfaces/local/lib/python3.10/dist-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab01_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/giuseppe-deninarivera/LABS/sesasr_labs/install/my_package/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/sesasr_labs/install/localization_project/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/sesasr_labs/install/lab05_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/turtlebot3_teleop/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/turtlebot3_example/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/turtlebot3_msgs/local/lib/python3.10/dist-packages",
+        "/home/giuseppe-deninarivera/LABS/install/my_package/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/localization_project/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab05_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab03_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab02_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab02_interfaces/local/lib/python3.10/dist-packages",
+        "/home/giuseppe-deninarivera/LABS/install/lab01_pkg/lib/python3.10/site-packages",
+        "/home/giuseppe-deninarivera/LABS/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
 }
