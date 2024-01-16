@@ -7,7 +7,6 @@ from localization_project.ekf import RobotEKF
 from localization_project.motion_models import velocity_motion_model, odometry_motion_model
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
 
-
 class EKF_node(Node):
     def __init__(self):
         super().__init__('EKF_node')
@@ -22,12 +21,13 @@ class EKF_node(Node):
 
         # Publishers
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
+        
 
         # Parameters
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('ekf_period_s', 1.0),
+                ('ekf_period_s', 0.1),
                 ('initial_pose', [-2.0, 0.0, 0.0]),
                 ('initial_covariance', [
                  0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001]),
@@ -60,13 +60,16 @@ class EKF_node(Node):
         self.max_range = self.get_parameter('max_range').value
         self.fov_deg = self.get_parameter('fov_deg').value
 
+        self.timer = self.create_timer(self.ekf_period_s, self.run_ekf )
+        self.logging_timer = self.create_timer(1.0, self.log_callback)
+
         # Initialize other variables and EKF
-        self.ground_truth = np.array([0.0, 0.0, 0.0])
+        self.ground_truth = np.array([-2.0, 0.0, 0.0])
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
-        self.v = 0.0
-        self.w = 0.0
+        self.v = 1e-10#0.0001
+        self.w = 1e-10#0.0001
         self.mu = np.zeros((3, 1))
 
         eval_hx, eval_Ht = range_and_bearing()
@@ -85,6 +88,7 @@ class EKF_node(Node):
         # Timer for EKF period
         # self.ekf_rate = self.create_timer(self.ekf_period_s, self.run_ekf)
         self.get_logger().info("EKF_node initiated")
+
 
     def odometry_callback(self, msgs):
         quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
@@ -106,15 +110,22 @@ class EKF_node(Node):
         self.w = msgs.twist.twist.angular.z
         # print(self.v, self.w)
 
+
     def run_ekf(self):
         # Perform prediction step
         # self.get_logger().info("starting the ekf")
         # self.get_logger().info("Prediction Step started")
 
+
+        self.ekf.predict(u=np.array([[self.v, self.w]]).T, 
+                         g_extra_args=[self.ekf_period_s])   #g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
+        #self.get_logger().info("Update Step started")
+
         self.ekf.predict(u=np.array([[self.v, self.w]]).T,
                          g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
 
         # self.get_logger().info("Update Step started")
+
         for i in range(0, len(self.lmark), 2):
             lmark = [self.lmark[i], self.lmark[i + 1]]
             z = z_landmark(np.array([self.ground_truth]).T, lmark, self.ekf.eval_hx,
@@ -126,13 +137,46 @@ class EKF_node(Node):
                 self.ekf.update(self.z, lmark, residual=np.subtract)
                 # print("z is:", z)
         # Publish the result
+        #positions        
         ekf_estimate = self.ekf.mu
         ekf_msg = Odometry()
         ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
         ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
-        ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
-        ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
+        ekf_msg.twist.twist.linear.x = self.v
+        ekf_msg.twist.twist.angular.z = self.w
+        #covariance manipulation
+        cov_x , cov_y, cov_theta = self.ekf.Sigma[0,0], self.ekf.Sigma[1,1], self.ekf.Sigma[2,2]
+        ekf_msg.pose.covariance[0] = cov_x
+        ekf_msg.pose.covariance[7] = cov_y
+        ekf_msg.pose.covariance[35] = cov_theta
+        
+        self.ekf_pub.publish(ekf_msg)
+        self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
 
+    def odometry_callback(self, msgs):
+        quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
+                msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
+        _, _, self.theta = tf_transformations.euler_from_quaternion(quat)
+        self.x = msgs.pose.pose.position.x
+        self.y = msgs.pose.pose.position.y
+        
+    def ground_truth_callback(self, msg):
+        quat = [msg.pose.pose.orientation.x, msg.pose.pose.orientation.y,
+                msg.pose.pose.orientation.z, msg.pose.pose.orientation.w]
+        _, _, self.ground_truth[2] = tf_transformations.euler_from_quaternion(quat)
+        self.ground_truth[0] = msg.pose.pose.position.x
+        self.ground_truth[1] = msg.pose.pose.position.y
+
+    def velocity_callback(self, msgs):
+        self.v = msgs.twist.twist.linear.x
+        self.w = msgs.twist.twist.angular.z
+        #print(self.v, self.w)
+        
+    def log_callback(self):
+        self.get_logger().info(f'calculating velocities: {self.v, self.w}')
+        self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
+        self.get_logger().info(f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
+        
         # print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
