@@ -61,7 +61,7 @@ class EKF_node(Node):
         self.fov_deg = self.get_parameter('fov_deg').value
 
         # Initialize other variables and EKF
-        self.ground_truth = np.array([0.0, 0.0, 0.0])
+        self.ground_truth = np.array([-2.0, 0.0, 0.0])
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
