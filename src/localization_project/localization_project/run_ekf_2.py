@@ -79,29 +79,6 @@ class EKF_node(Node):
         #self.ekf_rate = self.create_timer(self.ekf_period_s, self.run_ekf)
         self.get_logger().info("EKF_node initiated")
 
-    def odometry_callback(self, msgs):
-        quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
-                msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
-        _, _, self.theta = tf_transformations.euler_from_quaternion(quat)
-        self.x = msgs.pose.pose.position.x
-        self.y = msgs.pose.pose.position.y
-        self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
-
-    def ground_truth_callback(self, msg):
-        quat = [msg.pose.pose.orientation.x, msg.pose.pose.orientation.y,
-                msg.pose.pose.orientation.z, msg.pose.pose.orientation.w]
-        _, _, self.ground_truth[2] = tf_transformations.euler_from_quaternion(quat)
-        self.ground_truth[0] = msg.pose.pose.position.x
-        self.ground_truth[1] = msg.pose.pose.position.y
-
-    def velocity_callback(self, msgs):
-        self.v = msgs.twist.twist.linear.x
-        self.w = msgs.twist.twist.angular.z
-        #print(self.v, self.w)
-        self.get_logger().info(f'calculating velocities: {self.v, self.w}')
-
-        
-
     def run_ekf(self):
         # Perform prediction step
         #self.get_logger().info("starting the ekf")
@@ -132,6 +109,32 @@ class EKF_node(Node):
         #print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
+        
+    def odometry_callback(self, msgs):
+        quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
+                msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
+        _, _, self.theta = tf_transformations.euler_from_quaternion(quat)
+        self.x = msgs.pose.pose.position.x
+        self.y = msgs.pose.pose.position.y
+        self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
+
+
+    def ground_truth_callback(self, msg):
+        quat = [msg.pose.pose.orientation.x, msg.pose.pose.orientation.y,
+                msg.pose.pose.orientation.z, msg.pose.pose.orientation.w]
+        _, _, self.ground_truth[2] = tf_transformations.euler_from_quaternion(quat)
+        self.ground_truth[0] = msg.pose.pose.position.x
+        self.ground_truth[1] = msg.pose.pose.position.y
+
+    def velocity_callback(self, msgs):
+        self.v = msgs.twist.twist.linear.x
+        self.w = msgs.twist.twist.angular.z
+        #print(self.v, self.w)
+        self.get_logger().info(f'calculating velocities: {self.v, self.w}')
+
+        
+
+
         
 
 
