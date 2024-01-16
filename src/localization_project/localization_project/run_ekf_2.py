@@ -62,8 +62,8 @@ class EKF_node(Node):
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
-        self.v = 0.0
-        self.w = 0.0
+        self.v = 0.01
+        self.w = 0.01
         self.mu = np.zeros((3, 1))
 
         eval_hx, eval_Ht = range_and_bearing()
@@ -112,7 +112,7 @@ class EKF_node(Node):
         #print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
-        
+
     def odometry_callback(self, msgs):
         quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
                 msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
