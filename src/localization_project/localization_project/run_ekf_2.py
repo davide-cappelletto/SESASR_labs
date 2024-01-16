@@ -6,7 +6,7 @@ import numpy as np
 from localization_project.ekf import RobotEKF
 from localization_project.motion_models import velocity_motion_model, odometry_motion_model
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
-
+#davide lesbico
 class EKF_node(Node):
     def __init__(self):
         super().__init__('EKF_node')
