@@ -57,7 +57,7 @@ class EKF_node(Node):
         self.timer = self.create_timer(self.ekf_period_s, self.run_ekf )
 
         # Initialize other variables and EKF
-        self.ground_truth = np.array([-2.0.0, 0.0, 0.0])
+        self.ground_truth = np.array([-2.0, 0.0, 0.0])
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
