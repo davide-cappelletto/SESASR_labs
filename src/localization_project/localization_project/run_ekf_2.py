@@ -176,10 +176,6 @@ class EKF_node(Node):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
         self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
         self.get_logger().info(f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
-        
-        # print("Published EKF message:", ekf_msg)
-        self.ekf_pub.publish(ekf_msg)
-        self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
 
 
 def main(args=None):
