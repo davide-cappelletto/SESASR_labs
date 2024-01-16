@@ -15,7 +15,7 @@ def velocity_motion_model():
                 [0, dt]])
     eval_Vt = sp.lambdify((theta, v, w, dt), Vt, 'numpy')
 
-    return gux, eval_gux, Gt, eval_Gt, Vt, eval_Vt
+    return eval_gux, eval_Gt, eval_Vt
 
 def get_odometry_input(x, x_prev):
     x0 = x_prev[0,0]
@@ -39,5 +39,5 @@ def odometry_motion_model():
     eval_Gt_odom = sp.lambdify((theta, trasl, rot1), Gt_odom, 'numpy')
     eval_Vt_odom = sp.lambdify((theta, trasl, rot1), Vt_odom, 'numpy')
 
-    return gux_odom, eval_gux_odom, Gt_odom, eval_Gt_odom, Vt_odom, eval_Vt_odom
+    return eval_gux_odom, eval_Gt_odom, eval_Vt_odom
 
