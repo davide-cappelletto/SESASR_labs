@@ -4,7 +4,7 @@ sp.init_printing(use_latex='mathjax')
 from sympy import symbols, Matrix, latex
 
 def velocity_motion_model(x, y, theta, v, w, dt):
-
+    x, y, theta, v, w, dt = symbols('x y theta v w dt')
     gux = Matrix([x,y,theta]) + Matrix([[-v/w*sp.sin(theta)+v/w*sp.sin(theta+w*dt)],[v/w*sp.cos(theta)-v/w*sp.cos(theta+w*dt)],[w*dt]])
     eval_gux = sp.lambdify((x, y, theta, v, w, dt), gux, 'numpy')
 
@@ -30,7 +30,7 @@ def get_odometry_input(x, x_prev):
     return np.array([[rot1, trasl, rot2]]).T
 
 def odometry_motion_model(x, y, theta, rot1, trasl, rot2):
-
+    x, y, theta, rot1, trasl, rot2 = symbols('x y theta rot1 trasl rot2')
     gux_odom = Matrix([x, y, theta]) + Matrix([[trasl*sp.cos(rot1+theta)], [trasl*sp.sin(rot1+theta)], [rot1+rot2]])
     Gt_odom = gux_odom.jacobian(Matrix([x,y,theta]))
     Vt_odom = gux_odom.jacobian(Matrix([ rot1, trasl, rot2]))
