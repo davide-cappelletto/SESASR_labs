@@ -56,6 +56,7 @@ class EKF_node(Node):
 
         self.timer = self.create_timer(self.ekf_period_s, self.run_ekf )
         self.logging_timer = self.create_timer(1.0, self.log_callback)
+
         # Initialize other variables and EKF
         self.ground_truth = np.array([-2.0, 0.0, 0.0])
         self.x = self.initial_pose[0]
@@ -102,11 +103,11 @@ class EKF_node(Node):
                 #print("z is:", z)
         # Publish the result
         ekf_estimate = self.ekf.mu
-        ekf_msg = Odometry()
-        ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
-        ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
-        ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
-        ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
+        self.ekf_msg = Odometry()
+        self.ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
+        self.ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
+        self.ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
+        self.ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
 
         #print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
@@ -134,7 +135,7 @@ class EKF_node(Node):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
         self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
         self.get_logger().info(f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
-        self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
+        self.get_logger().info(f'Publishing ekf_msg: {self.ekf_msg}')
         
 
 
