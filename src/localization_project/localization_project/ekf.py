@@ -63,7 +63,7 @@ class RobotEKF:
     # (mx, x, my, y)
         Ht = self.eval_Ht(mx, x, my, y)
         self.S = Ht@self.Sigma@Ht.T + self.Qt
-        self.K = self.Sigma@Ht.T@np.inv(self.S)
+        self.K = self.Sigma@Ht.T@np.linalg.inv(self.S)
 
     # Evaluate the expected measurement and compute the residual, then update the state prediction
     # (mx, x, my, y, theta)

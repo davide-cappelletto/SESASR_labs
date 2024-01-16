@@ -18,12 +18,13 @@ class EKF_node(Node):
 
         # Publishers
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
+        
 
         # Parameters
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('ekf_period_s', 1.0),
+                ('ekf_period_s', 0.1),
                 ('initial_pose', [-2.0, 0.0, 0.0]),
                 ('initial_covariance', [0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001]),
                 ('landmarks', [-1.1, -1.1, -1.1, 0.0, -1.1, 1.1, 0.0, -1.1, 0.0, 0.0, 0.0, 1.1, 1.1, -1.1, 1.1, 0.0, 1.1, 1.1]),
@@ -53,8 +54,10 @@ class EKF_node(Node):
         self.max_range = self.get_parameter('max_range').value
         self.fov_deg = self.get_parameter('fov_deg').value
 
+        self.timer = self.create_timer(self.ekf_period_s, self.run_ekf )
+
         # Initialize other variables and EKF
-        self.ground_truth = np.array([0.0, 0.0, 0.0])
+        self.ground_truth = np.array([-2.0.0, 0.0, 0.0])
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
@@ -85,8 +88,7 @@ class EKF_node(Node):
         #self.get_logger().info("Prediction Step started")
 
         self.ekf.predict(u=np.array([[self.v, self.w]]).T, 
-                         g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
-        
+                         g_extra_args=[self.ekf_period_s])   #g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
         #self.get_logger().info("Update Step started")
         for i in range(0, len(self.lmark), 2):
             lmark = [self.lmark[i], self.lmark[i + 1]] 
