@@ -5,6 +5,7 @@ from sympy import symbols, Matrix, latex
 
 def range_and_bearing(x, mx, y, my, theta):
     x, mx, y, my, theta = symbols('x mx y my theta')
+    
     hx = Matrix([[sp.sqrt((mx-x)**2+(my-y)**2)],[sp.atan2(my-y,mx-x)-theta]])
     eval_hx = sp.lambdify((mx, x, my, y, theta), hx, 'numpy')
 
