@@ -25,6 +25,7 @@ class RobotEKF:
 
         self._I = np.eye(dim_x)  # identity matrix used for computations
     def predict(self, u, g_extra_args=()):
+        print('entering predict step')
         x = self.mu[0,0]
         y = self.mu[1,0]
         theta = self.mu[2,0]
@@ -47,8 +48,10 @@ class RobotEKF:
                 Gt = self.eval_Gt(theta, trasl, rot1)
                 Vt = self.eval_Vt(theta, trasl, rot1)
         self.Sigma = Gt@self.Sigma@Gt.T + Vt@self.Mt@Vt.T
+        print(f'Predict Step Values of Matrices\nmu: {self.mu}\nSigma: {self.Sigma}')
 
     def update(self, z, lmark, residual=np.subtract):
+        print('entering update step')
 
     # Convert the measurement to a vector if necessary. Needed for the residual computation
         if np.isscalar(z) and self.dim_z == 1:
@@ -76,3 +79,5 @@ class RobotEKF:
     # Note that I is the identity matrix.
         I_KH = self._I - self.K@Ht
         self.Sigma = I_KH @ self.Sigma @ I_KH.T + self.K @ self.Qt @ self.K.T
+        print(f"Update Step Values of Matrices\nmu: {self.mu}\nSigma: {self.Sigma}\nS: {self.S}\nK: {self.K}")
+

@@ -103,14 +103,15 @@ class EKF_node(Node):
                 #print("z is:", z)
         # Publish the result
         ekf_estimate = self.ekf.mu
-        self.ekf_msg = Odometry()
-        self.ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
-        self.ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
-        self.ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
-        self.ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
+        ekf_msg = Odometry()
+        ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
+        ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
+        ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
+        ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
 
         #print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
+        self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
         
     def odometry_callback(self, msgs):
         quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
@@ -135,7 +136,7 @@ class EKF_node(Node):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
         self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
         self.get_logger().info(f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
-        self.get_logger().info(f'Publishing ekf_msg: {self.ekf_msg}')
+        
         
 
 
