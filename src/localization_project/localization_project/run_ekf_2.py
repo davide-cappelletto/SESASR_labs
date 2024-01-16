@@ -62,8 +62,8 @@ class EKF_node(Node):
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
-        self.v = 0.01
-        self.w = 0.01
+        self.v = 0.0001
+        self.w = 0.0001
         self.mu = np.zeros((3, 1))
 
         eval_hx, eval_Ht = range_and_bearing()
@@ -100,16 +100,21 @@ class EKF_node(Node):
                 self.z = z
                 # Perform update step
                 self.ekf.update(self.z, lmark, residual=np.subtract)
-                #print("z is:", z)
+                 
         # Publish the result
+        #positions        
         ekf_estimate = self.ekf.mu
         ekf_msg = Odometry()
         ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
         ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
-        ekf_msg.pose.pose.orientation.z = np.sin(ekf_estimate[2, 0] / 2.0)
-        ekf_msg.pose.pose.orientation.w = np.cos(ekf_estimate[2, 0] / 2.0)
+        ekf_msg.twist.twist.linear.x = self.v
+        ekf_msg.twist.twist.angular.z = self.w
+        #covariance manipulation
+        cov_x , cov_y, cov_theta = self.ekf.Sigma[0,0], self.ekf.Sigma[1,1], self.ekf.Sigma[2,2]
+        ekf_msg.pose.covariance[0] = cov_x
+        ekf_msg.pose.covariance[7] = cov_y
+        ekf_msg.pose.covariance[35] = cov_theta
 
-        #print("Published EKF message:", ekf_msg)
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
 
