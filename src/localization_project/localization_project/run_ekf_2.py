@@ -68,8 +68,8 @@ class EKF_node(Node):
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
-        self.v = 1e-10#0.0001
-        self.w = 1e-10#0.0001
+        self.v = 1e-10 #0.0001
+        self.w = 1e-10 #0.0001
         self.mu = np.zeros((3, 1))
 
         eval_hx, eval_Ht = range_and_bearing()
@@ -176,10 +176,6 @@ class EKF_node(Node):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
         self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
         self.get_logger().info(f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
-        
-        # print("Published EKF message:", ekf_msg)
-        self.ekf_pub.publish(ekf_msg)
-        self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
 
 
 def main(args=None):
