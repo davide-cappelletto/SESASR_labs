@@ -85,6 +85,7 @@ class EKF_node(Node):
         _, _, self.theta = tf_transformations.euler_from_quaternion(quat)
         self.x = msgs.pose.pose.position.x
         self.y = msgs.pose.pose.position.y
+        self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
 
     def ground_truth_callback(self, msg):
         quat = [msg.pose.pose.orientation.x, msg.pose.pose.orientation.y,
@@ -97,6 +98,7 @@ class EKF_node(Node):
         self.v = msgs.twist.twist.linear.x
         self.w = msgs.twist.twist.angular.z
         #print(self.v, self.w)
+        self.get_logger().info(f'calculating velocities: {self.v, self.w}')
 
         
 
