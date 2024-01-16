@@ -62,8 +62,8 @@ class EKF_node(Node):
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
-        self.v = 1e-10#0.0001
-        self.w = 1e-10#0.0001
+        self.v = 1e-10 #0.0001
+        self.w = 1e-10 #0.0001
         self.mu = np.zeros((3, 1))
 
         eval_hx, eval_Ht = range_and_bearing()
