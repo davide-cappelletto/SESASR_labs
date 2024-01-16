@@ -3,7 +3,7 @@ import numpy as np
 sp.init_printing(use_latex='mathjax')
 from sympy import symbols, Matrix, latex
 
-def velocity_motion_model(x, y, theta, v, w, dt):
+def velocity_motion_model():
     x, y, theta, v, w, dt = symbols('x y theta v w dt')
     gux = Matrix([x,y,theta]) + Matrix([[-v/w*sp.sin(theta)+v/w*sp.sin(theta+w*dt)],[v/w*sp.cos(theta)-v/w*sp.cos(theta+w*dt)],[w*dt]])
     eval_gux = sp.lambdify((x, y, theta, v, w, dt), gux, 'numpy')
@@ -15,7 +15,7 @@ def velocity_motion_model(x, y, theta, v, w, dt):
                 [0, dt]])
     eval_Vt = sp.lambdify((theta, v, w, dt), Vt, 'numpy')
 
-    return gux, eval_gux, Gt, eval_Gt, Vt, eval_Vt
+    return eval_gux, eval_Gt, eval_Vt
 
 def get_odometry_input(x, x_prev):
     x0 = x_prev[0,0]
@@ -29,7 +29,7 @@ def get_odometry_input(x, x_prev):
     rot2 = theta1 - rot1 - theta0
     return np.array([[rot1, trasl, rot2]]).T
 
-def odometry_motion_model(x, y, theta, rot1, trasl, rot2):
+def odometry_motion_model():
     x, y, theta, rot1, trasl, rot2 = symbols('x y theta rot1 trasl rot2')
     gux_odom = Matrix([x, y, theta]) + Matrix([[trasl*sp.cos(rot1+theta)], [trasl*sp.sin(rot1+theta)], [rot1+rot2]])
     Gt_odom = gux_odom.jacobian(Matrix([x,y,theta]))
@@ -39,5 +39,5 @@ def odometry_motion_model(x, y, theta, rot1, trasl, rot2):
     eval_Gt_odom = sp.lambdify((theta, trasl, rot1), Gt_odom, 'numpy')
     eval_Vt_odom = sp.lambdify((theta, trasl, rot1), Vt_odom, 'numpy')
 
-    return gux_odom, eval_gux_odom, Gt_odom, eval_Gt_odom, Vt_odom, eval_Vt_odom
+    return eval_gux_odom, eval_Gt_odom, eval_Vt_odom
 

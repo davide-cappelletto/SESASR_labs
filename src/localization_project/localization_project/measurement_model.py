@@ -3,7 +3,7 @@ import numpy as np
 sp.init_printing(use_latex='mathjax')
 from sympy import symbols, Matrix, latex
 
-def range_and_bearing(x, mx, y, my, theta):
+def range_and_bearing():
     x, mx, y, my, theta = symbols('x mx y my theta')
     
     hx = Matrix([[sp.sqrt((mx-x)**2+(my-y)**2)],[sp.atan2(my-y,mx-x)-theta]])
@@ -12,7 +12,7 @@ def range_and_bearing(x, mx, y, my, theta):
     Ht = Matrix([[(x-mx)/(sp.sqrt((mx-x)**2+(my-y)**2)), (y-my)/(sp.sqrt((mx-x)**2+(my-y)**2)), 0],[-(y-my)/(sp.sqrt((mx-x)**2+(my-y)**2)), (x-mx)/(sp.sqrt((mx-x)**2+(my-y)**2)), -1]])
     eval_Ht = sp.lambdify((mx, x, my, y), Ht, 'numpy')
 
-    return hx, eval_hx, Ht, eval_Ht
+    return eval_hx, eval_Ht
 
 
 
