@@ -6,6 +6,8 @@ import numpy as np
 from localization_project.ekf import RobotEKF
 from localization_project.motion_models import velocity_motion_model, odometry_motion_model
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
+from std_msgs.msg import Header
+from geometry_msgs.msg import Pose, Twist #useful?
 
 class EKF_node(Node):
     def __init__(self):
@@ -85,8 +87,8 @@ class EKF_node(Node):
         self.Mt = np.diag([self.std_lin_vel**2, self.std_ang_vel**2])
         self.Qt = np.diag([self.std_rng**2, self.std_brg**2])
         print("initial sigma", self.Sigma)
+        
         # Timer for EKF period
-        # self.ekf_rate = self.create_timer(self.ekf_period_s, self.run_ekf)
         self.get_logger().info("EKF_node initiated")
 
 
@@ -118,13 +120,9 @@ class EKF_node(Node):
 
 
         self.ekf.predict(u=np.array([[self.v, self.w]]).T, 
-                         g_extra_args=[self.ekf_period_s])   #g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
+                         g_extra_args=[self.ekf_period_s])   
         #self.get_logger().info("Update Step started")
 
-        self.ekf.predict(u=np.array([[self.v, self.w]]).T,
-                         g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
-
-        # self.get_logger().info("Update Step started")
 
         for i in range(0, len(self.lmark), 2):
             lmark = [self.lmark[i], self.lmark[i + 1]]
@@ -137,6 +135,7 @@ class EKF_node(Node):
                 self.ekf.update(self.z, lmark, residual=np.subtract)
                 # print("z is:", z)
         # Publish the result
+
         #positions        
         ekf_estimate = self.ekf.mu
         ekf_msg = Odometry()
@@ -144,12 +143,20 @@ class EKF_node(Node):
         ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
         ekf_msg.twist.twist.linear.x = self.v
         ekf_msg.twist.twist.angular.z = self.w
+
         #covariance manipulation
         cov_x , cov_y, cov_theta = self.ekf.Sigma[0,0], self.ekf.Sigma[1,1], self.ekf.Sigma[2,2]
         ekf_msg.pose.covariance[0] = cov_x
         ekf_msg.pose.covariance[7] = cov_y
         ekf_msg.pose.covariance[35] = cov_theta
-        
+
+        #Header
+        ekf_msg.header = Header()
+        ekf_msg.header.stamp = self.get_clock().now().to_msg()
+        ekf_msg.header.frame_id = 'odom'  
+        ekf_msg.child_frame_id = 'base_footprint' 
+
+        #PUBLICATION
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
 
@@ -170,8 +177,8 @@ class EKF_node(Node):
     def velocity_callback(self, msgs):
         self.v = msgs.twist.twist.linear.x
         self.w = msgs.twist.twist.angular.z
-        #print(self.v, self.w)
-        
+
+    # logging to track positions and velocities
     def log_callback(self):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
         self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
