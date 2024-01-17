@@ -8,18 +8,18 @@ from localization_project.motion_models import velocity_motion_model, odometry_m
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
 from std_msgs.msg import Header
 from geometry_msgs.msg import Pose, Twist #useful?
-
+from rclpy.qos import qos_profile_sensor_data
 class EKF_node(Node):
     def __init__(self):
         super().__init__('EKF_node')
 
         # Subscriptions
         self.ground_truth_sub = self.create_subscription(
-            Odometry, '/ground_truth', self.ground_truth_callback, 10)
+            Odometry, '/ground_truth', self.ground_truth_callback, qos_profile_sensor_data)
         self.odom_sub = self.create_subscription(
-            Odometry, '/diff_drive_controller/odom', self.odometry_callback, 10)
+            Odometry, '/diff_drive_controller/odom', self.odometry_callback, qos_profile_sensor_data)
         self.vel_sub = self.create_subscription(
-            Odometry, '/diff_drive_controller/odom', self.velocity_callback, 10)
+            Odometry, '/diff_drive_controller/odom', self.velocity_callback, qos_profile_sensor_data)
 
         # Publishers
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
@@ -29,7 +29,7 @@ class EKF_node(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('ekf_period_s', 0.1),
+                ('ekf_period_s', 0.01),
                 ('initial_pose', [-2.0, 0.0, 0.0]),
                 ('initial_covariance', [
                  0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001]),
@@ -38,8 +38,9 @@ class EKF_node(Node):
                 ('std_rot1', 0.05),
                 ('std_transl', 0.05),
                 ('std_rot2', 0.05),
-                ('std_lin_vel', 0.1),
-                ('std_ang_vel', 1.0),
+                ('std_lin_vel', 0.05),
+                ('std_ang_vel', 0.1),
+                # da consegna
                 ('std_rng', 0.3),
                 ('std_brg', np.deg2rad(1.0)),
                 ('max_range', 8.0),
