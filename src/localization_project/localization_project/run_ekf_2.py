@@ -87,12 +87,8 @@ class EKF_node(Node):
         self.Sigma = np.diag(self.initial_covariance)
         self.Mt = np.diag([self.std_lin_vel**2, self.std_ang_vel**2])
         self.Qt = np.diag([self.std_rng**2, self.std_brg**2])
-        print("initial sigma", self.Sigma)
-        
-        # Timer for EKF period
         self.get_logger().info("EKF_node initiated")
-
-
+        
     def odometry_callback(self, msgs):
         quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
                 msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
@@ -111,20 +107,14 @@ class EKF_node(Node):
     def velocity_callback(self, msgs):
         self.v = msgs.twist.twist.linear.x
         self.w = msgs.twist.twist.angular.z
-        # print(self.v, self.w)
-
 
     def run_ekf(self):
         # Perform prediction step
-        # self.get_logger().info("starting the ekf")
-        # self.get_logger().info("Prediction Step started")
-
-
+        self.get_logger().info("Prediction Step started")
         self.ekf.predict(u=np.array([[self.v, self.w]]).T, 
-                         g_extra_args=[self.ekf_period_s])   
-        #self.get_logger().info("Update Step started")
-
-
+                         g_extra_args=[self.ekf_period_s]) 
+          
+        self.get_logger().info("Update Step started")
         for i in range(0, len(self.lmark), 2):
             lmark = [self.lmark[i], self.lmark[i + 1]]
             z = z_landmark(np.array([self.ground_truth]).T, lmark, self.ekf.eval_hx,
@@ -134,7 +124,6 @@ class EKF_node(Node):
                 self.z = z
                 # Perform update step
                 self.ekf.update(self.z, lmark, residual=np.subtract)
-                # print("z is:", z)
         # Publish the result
 
         #positions        
