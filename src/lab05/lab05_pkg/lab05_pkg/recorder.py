@@ -49,9 +49,9 @@ class RecorderNode(Node):
         #np.save("filter.npy", np.array(self.filter))
         #np.save("ground_truth.npy", np.array(self.ground_truth))
                 # adds '.npy' files to a 'stored_data' folder that was previously created. Remember to import 'Path' from 'pathlib'.
-        odom_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/odom.npy'
-        filter_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/filter.npy'
-        gt_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/ground_truth.npy'
+        odom_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/odom.npy'
+        filter_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/filter.npy'
+        gt_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/ground_truth.npy'
         np.save(odom_path, np.array(self.odom))
         np.save(filter_path, np.array(self.filter))
         np.save(gt_path, np.array(self.ground_truth))
