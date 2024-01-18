@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 class ErrorMetricsCalculator:
     def __init__(self, odom_data, filter_data, ground_truth_data):
         self.odom_data = odom_data
@@ -130,9 +131,17 @@ class ErrorMetricsCalculator:
         plt.tight_layout()
         plt.show()
 
-odom_data = np.load("stored_data/odom.npy")
-filter_data = np.load("stored_data/filter.npy")
-ground_truth_data = np.load("stored_data/ground_truth.npy")
+script_path = Path(__file__).resolve()
+
+script_directory = script_path.parent
+
+odom_file = script_directory / "odom.npy"
+filter_file = script_directory / "filter.npy"
+ground_truth_file = script_directory / "ground_truth.npy"
+
+odom_data = np.load(odom_file)
+filter_data = np.load(filter_file)
+ground_truth_data = np.load(ground_truth_file)
 
 calculator = ErrorMetricsCalculator(odom_data, filter_data, ground_truth_data)
 
