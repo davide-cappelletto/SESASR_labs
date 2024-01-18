@@ -45,10 +45,6 @@ class RecorderNode(Node):
         self.ground_truth.append([ground_truth.pose.pose.position.x, ground_truth.pose.pose.position.y, self.yaw_calc(ground_truth.pose.pose.orientation)])
 
     def save_data(self):
-        #np.save("odom.npy", np.array(self.odom))
-        #np.save("filter.npy", np.array(self.filter))
-        #np.save("ground_truth.npy", np.array(self.ground_truth))
-                # adds '.npy' files to a 'stored_data' folder that was previously created. Remember to import 'Path' from 'pathlib'.
         odom_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/odom.npy'
         filter_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/filter.npy'
         gt_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/ground_truth.npy'
