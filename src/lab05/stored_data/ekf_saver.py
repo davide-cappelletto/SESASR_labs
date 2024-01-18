@@ -107,9 +107,9 @@ class ErrorMetricsCalculator:
               f"filter_metric:\n\n> RMSE_filter = {self.filter_metrics_results[0]}\n> MAE_filter = {self.filter_metrics_results[1]}\n> Total cumulative error filter (TCE_filter) = {self.filter_metrics_results[2]}\n> %err final pos w.r.t. the total distance = {self.filter_metrics_results[3]}\n")
 
 
-odom_data = np.load("odom.npy")
-filter_data = np.load("filter.npy")
-ground_truth_data = np.load("ground_truth.npy")
+odom_data = np.load("stored_data/odom.npy")
+filter_data = np.load("stored_data/filter.npy")
+ground_truth_data = np.load("stored_data/ground_truth.npy")
 calculator = ErrorMetricsCalculator(odom_data, filter_data, ground_truth_data)
 calculator.odom_metrics()
 calculator.odom_metrics_results
