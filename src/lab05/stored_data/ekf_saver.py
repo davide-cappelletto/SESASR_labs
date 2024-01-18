@@ -48,8 +48,9 @@ class ErrorMetricsCalculator:
 
         e_p_odom = TCE_odom[0]/TDT_odom
 
+        self.e_odom = np.array([e_xy, e_yaw])
         self.odom_metrics_results = [RMSE_odom, MAE_odom, TCE_odom, e_p_odom]
-        return self.odom_metrics_results
+        return self.odom_metrics_results, self.e_odom
         # return self.odom_metrics_results
 
     def filter_metrics(self):
@@ -97,7 +98,8 @@ class ErrorMetricsCalculator:
 
         self.filter_metrics_results = [
             RMSE_filter, MAE_filter, TCE_filter, e_p_filter]
-        return self.filter_metrics_results
+        self.e_filter = np.array([e_xy, e_yaw])
+        return self.filter_metrics_results, self.e_filter
 
         # return RMSE_filter, MAE_filter, TCE_filter, e_p_filter
 
@@ -106,13 +108,49 @@ class ErrorMetricsCalculator:
               f"odom_metric:\n\n> RMSE_odom = {self.odom_metrics_results[0]}\n> MAE_odom = {self.odom_metrics_results[1]}\n> Total cumulative error odom (TCE_odom) = {self.odom_metrics_results[2]}\n> %err final pos w.r.t. the total distance = {self.odom_metrics_results[3]}\n\n"
               f"filter_metric:\n\n> RMSE_filter = {self.filter_metrics_results[0]}\n> MAE_filter = {self.filter_metrics_results[1]}\n> Total cumulative error filter (TCE_filter) = {self.filter_metrics_results[2]}\n> %err final pos w.r.t. the total distance = {self.filter_metrics_results[3]}\n")
 
+    def plot_data(self, data1, data2, title):
+        plt.figure(figsize=(10, 5))
+        time = np.arange(len(data1[1]))
+
+        plt.subplot(2,1,1)
+        plt.plot(time, data1[0,:], label='odom error', linestyle='-', color = 'b')
+        plt.plot(time, data2[0,:], label='filter error', linestyle='-', color = 'r')
+        plt.title(f'{title} - XY positions')
+        plt.xlabel('Time')
+        plt.ylabel('XY position err')
+        plt.legend()
+
+        plt.subplot(2,1,2)
+        plt.plot(time, data1[1,:], label='odom error yaw', linestyle='-', color = 'b')
+        plt.plot(time, data2[1,:], label='filter error yaw', linestyle='-', color = 'r')  
+        plt.title(f'{title} - Yaw errors')
+        plt.xlabel('Time')
+        plt.ylabel('Yaw err')   
+        plt.legend() 
+        plt.tight_layout()
+        plt.show()
 
 odom_data = np.load("stored_data/odom.npy")
 filter_data = np.load("stored_data/filter.npy")
 ground_truth_data = np.load("stored_data/ground_truth.npy")
+
 calculator = ErrorMetricsCalculator(odom_data, filter_data, ground_truth_data)
+
 calculator.odom_metrics()
-calculator.odom_metrics_results
+odom_metrics_results = calculator.odom_metrics_results
+e_xy_odom = calculator.e_odom
+
 calculator.filter_metrics()
+filter_metrics_results = calculator.filter_metrics_results
+e_xy_filter = calculator.e_filter
+
 calculator.filter_metrics_results
+calculator.e_filter
 calculator.show()
+#plots
+_, e_odom = calculator.odom_metrics()
+_, e_filter = calculator.filter_metrics()
+print(e_odom[0,:])
+calculator.plot_data(e_odom, e_filter, title="/diff_drive_controller/odom position errors")
+#calculator.plot_data(e_odom[0], e_filter[0], title="/diff_drive_controller/odom position errors")
+#calculator.plot_data(e_odom[1], e_filter[1], title="/odometry/filtered position errors")
