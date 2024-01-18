@@ -45,9 +45,14 @@ class RecorderNode(Node):
         self.ground_truth.append([ground_truth.pose.pose.position.x, ground_truth.pose.pose.position.y, self.yaw_calc(ground_truth.pose.pose.orientation)])
 
     def save_data(self):
-        odom_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/odom.npy'
-        filter_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/filter.npy'
-        gt_path = Path.cwd() / 'lab05/lab05_pkg/lab05_pkg/stored_data/ground_truth.npy'
+
+        #odom_path = Path.cwd() / 'lab05/stored_data/odom.npy'
+        #filter_path = Path.cwd() / 'lab05/stored_data/filter.npy'
+        #gt_path = Path.cwd() / 'lab05/stored_data/ground_truth.npy'
+        odom_path = Path('src/lab05/stored_data/odom.npy').resolve()
+        filter_path = Path('src/lab05/stored_data/filter.npy').resolve()
+        gt_path = Path('src/lab05/stored_data/ground_truth.npy').resolve()
+
         np.save(odom_path, np.array(self.odom))
         np.save(filter_path, np.array(self.filter))
         np.save(gt_path, np.array(self.ground_truth))
