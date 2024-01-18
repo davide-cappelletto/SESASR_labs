@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 class ErrorMetricsCalculator:
     def __init__(self, odom_data, filter_data, ground_truth_data):
         self.odom_data = odom_data
@@ -107,9 +108,18 @@ class ErrorMetricsCalculator:
               f"filter_metric:\n\n> RMSE_filter = {self.filter_metrics_results[0]}\n> MAE_filter = {self.filter_metrics_results[1]}\n> Total cumulative error filter (TCE_filter) = {self.filter_metrics_results[2]}\n> %err final pos w.r.t. the total distance = {self.filter_metrics_results[3]}\n")
 
 
-odom_data = np.load("stored_data/odom.npy")
-filter_data = np.load("stored_data/filter.npy")
-ground_truth_data = np.load("stored_data/ground_truth.npy")
+script_path = Path(__file__).resolve()
+
+script_directory = script_path.parent
+
+odom_file = script_directory / "odom.npy"
+filter_file = script_directory / "filter.npy"
+ground_truth_file = script_directory / "ground_truth.npy"
+
+odom_data = np.load(odom_file)
+filter_data = np.load(filter_file)
+ground_truth_data = np.load(ground_truth_file)
+
 calculator = ErrorMetricsCalculator(odom_data, filter_data, ground_truth_data)
 calculator.odom_metrics()
 calculator.odom_metrics_results

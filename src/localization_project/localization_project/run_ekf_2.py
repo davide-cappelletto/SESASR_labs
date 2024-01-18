@@ -7,8 +7,10 @@ from localization_project.ekf import RobotEKF
 from localization_project.motion_models import velocity_motion_model, odometry_motion_model
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
 from std_msgs.msg import Header
-from geometry_msgs.msg import Pose, Twist #useful?
+from geometry_msgs.msg import Pose, Twist  # useful?
 from rclpy.qos import qos_profile_sensor_data
+
+
 class EKF_node(Node):
     def __init__(self):
         super().__init__('EKF_node')
@@ -23,7 +25,6 @@ class EKF_node(Node):
 
         # Publishers
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
-        
 
         # Parameters
         self.declare_parameters(
@@ -63,7 +64,7 @@ class EKF_node(Node):
         self.max_range = self.get_parameter('max_range').value
         self.fov_deg = self.get_parameter('fov_deg').value
 
-        self.timer = self.create_timer(self.ekf_period_s, self.run_ekf )
+        self.timer = self.create_timer(self.ekf_period_s, self.run_ekf)
         self.logging_timer = self.create_timer(1.0, self.log_callback)
 
         # Initialize other variables and EKF
@@ -71,8 +72,8 @@ class EKF_node(Node):
         self.x = self.initial_pose[0]
         self.y = self.initial_pose[1]
         self.theta = self.initial_pose[2]
-        self.v = 1e-10 #0.0001
-        self.w = 1e-10 #0.0001
+        self.v = 1e-10  # 0.0001
+        self.w = 1e-10  # 0.0001
         self.mu = np.zeros((3, 1))
 
         eval_hx, eval_Ht = range_and_bearing()
@@ -88,7 +89,7 @@ class EKF_node(Node):
         self.Mt = np.diag([self.std_lin_vel**2, self.std_ang_vel**2])
         self.Qt = np.diag([self.std_rng**2, self.std_brg**2])
         self.get_logger().info("EKF_node initiated")
-        
+
     def odometry_callback(self, msgs):
         quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
                 msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
@@ -111,9 +112,9 @@ class EKF_node(Node):
     def run_ekf(self):
         # Perform prediction step
         self.get_logger().info("Prediction Step started")
-        self.ekf.predict(u=np.array([[self.v, self.w]]).T, 
-                         g_extra_args=[self.ekf_period_s]) 
-          
+        self.ekf.predict(u=np.array([[self.v, self.w]]).T,
+                         g_extra_args=[self.ekf_period_s])
+
         self.get_logger().info("Update Step started")
         for i in range(0, len(self.lmark), 2):
             lmark = [self.lmark[i], self.lmark[i + 1]]
@@ -126,7 +127,7 @@ class EKF_node(Node):
                 self.ekf.update(self.z, lmark, residual=np.subtract)
         # Publish the result
 
-        #positions        
+        # positions
         ekf_estimate = self.ekf.mu
         ekf_msg = Odometry()
         ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
@@ -134,27 +135,30 @@ class EKF_node(Node):
         ekf_msg.twist.twist.linear.x = self.v
         ekf_msg.twist.twist.angular.z = self.w
 
-        #covariance manipulation
-        cov_x , cov_y, cov_theta = self.ekf.Sigma[0,0], self.ekf.Sigma[1,1], self.ekf.Sigma[2,2]
+        # covariance manipulation
+        cov_x, cov_y, cov_theta = self.ekf.Sigma[0,
+                                                 0], self.ekf.Sigma[1, 1], self.ekf.Sigma[2, 2]
         ekf_msg.pose.covariance[0] = cov_x
         ekf_msg.pose.covariance[7] = cov_y
         ekf_msg.pose.covariance[35] = cov_theta
 
-        #Header
+        # Header
         ekf_msg.header = Header()
         ekf_msg.header.stamp = self.get_clock().now().to_msg()
-        ekf_msg.header.frame_id = 'odom'  
-        ekf_msg.child_frame_id = 'base_footprint' 
+        ekf_msg.header.frame_id = 'odom'
+        ekf_msg.child_frame_id = 'base_footprint'
 
-        #PUBLICATION
+        # PUBLICATION
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
-    
+
     # logging to track positions and velocities
     def log_callback(self):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
-        self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
-        self.get_logger().info(f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
+        self.get_logger().info(
+            f'calculating positions: {self.x, self.y, self.theta}')
+        self.get_logger().info(
+            f'ground truth positions: {self.ground_truth[0], self.ground_truth[1], self.ground_truth[2]}')
 
 
 def main(args=None):
