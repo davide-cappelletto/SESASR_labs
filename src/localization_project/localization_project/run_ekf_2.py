@@ -6,18 +6,20 @@ import numpy as np
 from localization_project.ekf import RobotEKF
 from localization_project.motion_models import velocity_motion_model, odometry_motion_model
 from localization_project.measurement_model import range_and_bearing, z_landmark, residual
-
+from std_msgs.msg import Header
+from geometry_msgs.msg import Pose, Twist #useful?
+from rclpy.qos import qos_profile_sensor_data
 class EKF_node(Node):
     def __init__(self):
         super().__init__('EKF_node')
 
         # Subscriptions
         self.ground_truth_sub = self.create_subscription(
-            Odometry, '/ground_truth', self.ground_truth_callback, 10)
+            Odometry, '/ground_truth', self.ground_truth_callback, qos_profile_sensor_data)
         self.odom_sub = self.create_subscription(
-            Odometry, '/diff_drive_controller/odom', self.odometry_callback, 10)
+            Odometry, '/diff_drive_controller/odom', self.odometry_callback, qos_profile_sensor_data)
         self.vel_sub = self.create_subscription(
-            Odometry, '/diff_drive_controller/odom', self.velocity_callback, 10)
+            Odometry, '/diff_drive_controller/odom', self.velocity_callback, qos_profile_sensor_data)
 
         # Publishers
         self.ekf_pub = self.create_publisher(Odometry, '/ekf', 10)
@@ -27,7 +29,7 @@ class EKF_node(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('ekf_period_s', 0.1),
+                ('ekf_period_s', 0.01),
                 ('initial_pose', [-2.0, 0.0, 0.0]),
                 ('initial_covariance', [
                  0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001]),
@@ -36,8 +38,9 @@ class EKF_node(Node):
                 ('std_rot1', 0.05),
                 ('std_transl', 0.05),
                 ('std_rot2', 0.05),
-                ('std_lin_vel', 0.1),
-                ('std_ang_vel', 1.0),
+                ('std_lin_vel', 0.05),
+                ('std_ang_vel', 0.1),
+                # da consegna
                 ('std_rng', 0.3),
                 ('std_brg', np.deg2rad(1.0)),
                 ('max_range', 8.0),
@@ -84,12 +87,8 @@ class EKF_node(Node):
         self.Sigma = np.diag(self.initial_covariance)
         self.Mt = np.diag([self.std_lin_vel**2, self.std_ang_vel**2])
         self.Qt = np.diag([self.std_rng**2, self.std_brg**2])
-        print("initial sigma", self.Sigma)
-        # Timer for EKF period
-        # self.ekf_rate = self.create_timer(self.ekf_period_s, self.run_ekf)
         self.get_logger().info("EKF_node initiated")
-
-
+        
     def odometry_callback(self, msgs):
         quat = [msgs.pose.pose.orientation.x, msgs.pose.pose.orientation.y,
                 msgs.pose.pose.orientation.z, msgs.pose.pose.orientation.w]
@@ -108,24 +107,14 @@ class EKF_node(Node):
     def velocity_callback(self, msgs):
         self.v = msgs.twist.twist.linear.x
         self.w = msgs.twist.twist.angular.z
-        # print(self.v, self.w)
-
 
     def run_ekf(self):
         # Perform prediction step
-        # self.get_logger().info("starting the ekf")
-        # self.get_logger().info("Prediction Step started")
-
-
+        self.get_logger().info("Prediction Step started")
         self.ekf.predict(u=np.array([[self.v, self.w]]).T, 
-                         g_extra_args=[self.ekf_period_s])   #g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
-        #self.get_logger().info("Update Step started")
-
-        self.ekf.predict(u=np.array([[self.v, self.w]]).T,
-                         g_extra_args=[self.ekf_rate.timer_period_ns * 1e8])
-
-        # self.get_logger().info("Update Step started")
-
+                         g_extra_args=[self.ekf_period_s]) 
+          
+        self.get_logger().info("Update Step started")
         for i in range(0, len(self.lmark), 2):
             lmark = [self.lmark[i], self.lmark[i + 1]]
             z = z_landmark(np.array([self.ground_truth]).T, lmark, self.ekf.eval_hx,
@@ -135,8 +124,8 @@ class EKF_node(Node):
                 self.z = z
                 # Perform update step
                 self.ekf.update(self.z, lmark, residual=np.subtract)
-                # print("z is:", z)
         # Publish the result
+
         #positions        
         ekf_estimate = self.ekf.mu
         ekf_msg = Odometry()
@@ -144,12 +133,20 @@ class EKF_node(Node):
         ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
         ekf_msg.twist.twist.linear.x = self.v
         ekf_msg.twist.twist.angular.z = self.w
+
         #covariance manipulation
         cov_x , cov_y, cov_theta = self.ekf.Sigma[0,0], self.ekf.Sigma[1,1], self.ekf.Sigma[2,2]
         ekf_msg.pose.covariance[0] = cov_x
         ekf_msg.pose.covariance[7] = cov_y
         ekf_msg.pose.covariance[35] = cov_theta
-        
+
+        #Header
+        ekf_msg.header = Header()
+        ekf_msg.header.stamp = self.get_clock().now().to_msg()
+        ekf_msg.header.frame_id = 'odom'  
+        ekf_msg.child_frame_id = 'base_footprint' 
+
+        #PUBLICATION
         self.ekf_pub.publish(ekf_msg)
         self.get_logger().info(f'Publishing ekf_msg: {ekf_msg}')
 
@@ -170,8 +167,8 @@ class EKF_node(Node):
     def velocity_callback(self, msgs):
         self.v = msgs.twist.twist.linear.x
         self.w = msgs.twist.twist.angular.z
-        #print(self.v, self.w)
-        
+
+    # logging to track positions and velocities
     def log_callback(self):
         self.get_logger().info(f'calculating velocities: {self.v, self.w}')
         self.get_logger().info(f'calculating positions: {self.x, self.y, self.theta}')
