@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-
 class ErrorMetricsCalculator:
     def __init__(self, odom_data, filter_data, ground_truth_data):
         self.odom_data = odom_data
@@ -104,7 +102,7 @@ class ErrorMetricsCalculator:
         # return RMSE_filter, MAE_filter, TCE_filter, e_p_filter
 
     def show(self):
-        print(f"\n\n% ERROR METRICS FOR /diff_drive_controller/odom AND /odometry/filtererd %\nfirst:column 1"
+        print(f"\n\n% ERROR METRICS FOR /diff_drive_controller/odom AND /odometry/filtererd %\n [xy position errors, yaw errors]\n"
               f"odom_metric:\n\n> RMSE_odom = {self.odom_metrics_results[0]}\n> MAE_odom = {self.odom_metrics_results[1]}\n> Total cumulative error odom (TCE_odom) = {self.odom_metrics_results[2]}\n> %err final pos w.r.t. the total distance = {self.odom_metrics_results[3]}\n\n"
               f"filter_metric:\n\n> RMSE_filter = {self.filter_metrics_results[0]}\n> MAE_filter = {self.filter_metrics_results[1]}\n> Total cumulative error filter (TCE_filter) = {self.filter_metrics_results[2]}\n> %err final pos w.r.t. the total distance = {self.filter_metrics_results[3]}\n")
 
