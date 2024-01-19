@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'EKF_node = localization_project.run_ekf_2:main',
             'recorder = localization_project.recorder:main',
+            'recorder_alt = localization_project.recorder_alt:main'
         ],
     },
 )

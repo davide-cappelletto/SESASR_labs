@@ -13,7 +13,7 @@ class RecorderNode(Node):
     def __init__(self):
         super().__init__("my_node")
         self.get_logger().info("Initializing my_node")
-
+        
         # Create the subscribers and synchronize the messages
         self.odom_sub = message_filters.Subscriber(self, Odometry, "/diff_drive_controller/odom")
         self.filter_sub = message_filters.Subscriber(self, Odometry, "/ekf")

@@ -132,6 +132,7 @@ class EKF_node(Node):
         ekf_msg = Odometry()
         ekf_msg.pose.pose.position.x = ekf_estimate[0, 0]
         ekf_msg.pose.pose.position.y = ekf_estimate[1, 0]
+        ekf_msg.pose.pose.orientation.z = ekf_estimate[2, 0]
         ekf_msg.twist.twist.linear.x = self.v
         ekf_msg.twist.twist.angular.z = self.w
 
