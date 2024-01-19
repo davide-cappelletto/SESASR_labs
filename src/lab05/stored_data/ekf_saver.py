@@ -159,7 +159,7 @@ calculator.show()
 #plots
 _, e_odom = calculator.odom_metrics()
 _, e_filter = calculator.filter_metrics()
-#print(e_odom[0,:])
+
 calculator.plot_data(e_odom, e_filter, title="/diff_drive_controller/odom position errors")
 #calculator.plot_data(e_odom[0], e_filter[0], title="/diff_drive_controller/odom position errors")
 #calculator.plot_data(e_odom[1], e_filter[1], title="/odometry/filtered position errors")
