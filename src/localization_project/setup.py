@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'EKF_node = localization_project.run_ekf_2:main',
+            'recorder = localization_project.recorder:main',
         ],
     },
 )
