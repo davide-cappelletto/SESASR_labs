@@ -11,13 +11,16 @@ class ErrorMetricsCalculator:
         odom = self.odom_data
         ground = self.ground_truth_data
         print("odom shape", odom.shape)
-        odom_xy = odom[:, :2]
+        odom_list = odom[:, :2]
+        N = len(odom_list)
+        odom_arr = np.array(odom_list)
+        arr = np.zeros((N,2))
+        arr[:,0] = -2
+        odom_corrected  = odom_arr + arr
+        odom_xy = odom_corrected #.tolist()
         odom_yaw = odom[:, -1]
-        print(odom_xy)
         ground_xy = ground[:, :2]
         ground_yaw = ground[:, -1]
-
-        N = len(odom_xy)
 
         e_xy = np.linalg.norm(odom_xy-ground_xy, axis=-1)
         se_xy = np.square(e_xy)
