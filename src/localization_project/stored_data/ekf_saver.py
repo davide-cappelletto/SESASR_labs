@@ -10,10 +10,10 @@ class ErrorMetricsCalculator:
     def odom_metrics(self):
         odom = self.odom_data
         ground = self.ground_truth_data
-
+        print("odom shape", odom.shape)
         odom_xy = odom[:, :2]
         odom_yaw = odom[:, -1]
-
+        print(odom_xy)
         ground_xy = ground[:, :2]
         ground_yaw = ground[:, -1]
 
