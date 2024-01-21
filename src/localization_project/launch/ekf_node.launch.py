@@ -22,22 +22,14 @@ from launch_ros.substitutions import FindPackageShare
 from ament_index_python import get_package_share_directory
 
 def generate_launch_description():
-    use_sim_time_arg = DeclareLaunchArgument(
-        'use_sim_time',
-        default_value='true',
-        description='Whether to use simulation time'
-    )
-
-    localization_project_pkg_share = get_package_share_directory('localization_project')
-
-    config = PathJoinSubstitution([FindPackageShare("localization_project"),"config","ekf_node.yaml"])
+    config = PathJoinSubstitution([FindPackageShare("localization_project"),
+                                   "config",
+                                     "ekf_node.yaml"])
     ekf_node = Node(
         package="localization_project",
         executable= "EKF_node",
         output="screen",
-        #parameters=[config],
-        parameters=[{'config_file': PathJoinSubstitution([localization_project_pkg_share, 'config', 'ekf_node.yaml'])}
-        ]
+        parameters=[config],
         )
     
     rosbag_output_dir = DeclareLaunchArgument(
@@ -53,4 +45,4 @@ def generate_launch_description():
         output = "screen",       
     )
 
-    return LaunchDescription([use_sim_time_arg, ekf_node, rosbag_output_dir, rosbag_record_cmd])
+    return LaunchDescription([ekf_node, rosbag_output_dir, rosbag_record_cmd])
