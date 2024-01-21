@@ -1,1 +1,0 @@
-type <ros2 bag record -o recorded_data /diff_drive_controller/odom /ground_truth /ekf> from inside /localization_project/rosbags 
