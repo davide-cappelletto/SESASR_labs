@@ -20,6 +20,7 @@ from launch.substitutions import (
 )
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python import get_package_share_directory
+from pathlib import Path
 
 def generate_launch_description():
     config = PathJoinSubstitution([FindPackageShare("localization_project"),
@@ -41,8 +42,8 @@ def generate_launch_description():
     rosbag_record_cmd = ExecuteProcess(
         cmd = ["ros2", "bag", "record", "-o", "data", 
                "/diff_drive_controller/odom", "/ground_truth", "/ekf" ],
-        cwd = PathJoinSubstitution([ThisLaunchFileDir(), '../../', LaunchConfiguration('rosbag_output_dir')]),
-        output = "screen",       
+        cwd = PathJoinSubstitution(['/home/davide/sesasr_labs/src', LaunchConfiguration('rosbag_output_dir')]),
+        output = "screen",
     )
 
     return LaunchDescription([ekf_node, rosbag_output_dir, rosbag_record_cmd])
