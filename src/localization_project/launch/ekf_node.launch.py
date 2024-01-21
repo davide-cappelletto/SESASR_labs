@@ -35,9 +35,9 @@ def generate_launch_description():
         package="localization_project",
         executable= "EKF_node",
         output="screen",
-        #parameters=[config],
-        parameters=[{'config_file': PathJoinSubstitution([localization_project_pkg_share, 'config', 'ekf_node.yaml'])}
-        ]
+        parameters=[config],
+        #parameters=[{'config_file': PathJoinSubstitution([localization_project_pkg_share, 'config', 'ekf_node.yaml'])}
+        #]
         )
     
     rosbag_output_dir = DeclareLaunchArgument(
