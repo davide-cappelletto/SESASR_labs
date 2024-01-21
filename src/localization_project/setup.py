@@ -1,5 +1,8 @@
 from setuptools import find_packages, setup
 
+import os # This change was made to hopefully fix issues with the launch file.
+from glob import glob # This change was made to hopefully fix issues with the launch file.
+
 package_name = 'localization_project'
 
 setup(
@@ -10,6 +13,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')), # This change was made to hopefully fix issues with the launch file.
+        (os.path.join('share', package_name, 'launch'), glob('launch/*launch.py')), # This change was made to hopefully fix issues with the launch file.
     ],
     install_requires=['setuptools'],
     zip_safe=True,
