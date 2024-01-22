@@ -2,7 +2,7 @@
 build/
 install/
 log/
-turtlebot3/
+/src/turtlebot3/
 /src/localization_project/rosbags/
 /src/localization_project/launch/ekf_node.launch.py
 /src/lab05/stored_data/filter.npy
