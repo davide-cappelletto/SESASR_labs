@@ -4,3 +4,4 @@ install/
 log/
 turtlebot3/
 /src/localization_project/rosbags/
+/src/localization_project/launch

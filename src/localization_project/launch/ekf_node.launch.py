@@ -42,7 +42,7 @@ def generate_launch_description():
     rosbag_record_cmd = ExecuteProcess(
         cmd = ["ros2", "bag", "record", "-o", "data", 
                "/diff_drive_controller/odom", "/ground_truth", "/ekf" ],
-        cwd = PathJoinSubstitution(['/home/davide/sesasr_labs/src', LaunchConfiguration('rosbag_output_dir')]),
+        cwd = PathJoinSubstitution(['/home/giuseppe-deninarivera/LABS/sesasr_labs/src', LaunchConfiguration('rosbag_output_dir')]),
         output = "screen",
     )
 
