@@ -47,7 +47,7 @@ class ErrorMetricsCalculator:
             distance = np.sqrt(delta_x**2 + delta_y**2)
             TDT_odom += distance
 
-        e_p_odom = TCE_odom[0]/TDT_odom
+        e_p_odom = TCE_odom[-1]/TDT_odom
 
         self.e_odom = np.array([e_xy, e_yaw])
         self.odom_metrics_results = [RMSE_odom, MAE_odom, TCE_odom, e_p_odom]
@@ -95,7 +95,7 @@ class ErrorMetricsCalculator:
 
         print("Total Distance Traveled filter:", TDT_filter)
 
-        e_p_filter = TCE_filter[0]/TDT_filter
+        e_p_filter = TCE_filter[-1]/TDT_filter
 
         self.filter_metrics_results = [
             RMSE_filter, MAE_filter, TCE_filter, e_p_filter]
@@ -130,6 +130,18 @@ class ErrorMetricsCalculator:
         plt.legend() 
         plt.tight_layout()
         plt.show()
+        
+    # Last addition to show the trajectories
+    def plot_trajectories(self):
+        plt.figure(figsize=(10,5))
+        plt.plot(self.odom_data[:,0], self.odom_data[:,1], label='odom trajectory', linestyle='-', color='b')
+        plt.plot(self.filter_data[:,0], self.filter_data[:,1], label='filter trajectory', linestyle='-', color='r')
+        plt.title('Trajectories')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.legend()
+        plt.tight_layout
+        plt.show()
 
 script_path = Path(__file__).resolve()
 
@@ -161,5 +173,6 @@ _, e_odom = calculator.odom_metrics()
 _, e_filter = calculator.filter_metrics()
 
 calculator.plot_data(e_odom, e_filter, title="/diff_drive_controller/odom position errors")
+calculator.plot_trajectories()
 #calculator.plot_data(e_odom[0], e_filter[0], title="/diff_drive_controller/odom position errors")
 #calculator.plot_data(e_odom[1], e_filter[1], title="/odometry/filtered position errors")

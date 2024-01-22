@@ -4,3 +4,6 @@ install/
 log/
 turtlebot3/
 /src/localization_project/rosbags/
+/src/lab05/stored_data/filter.npy
+/src/lab05/stored_data/ground_truth.npy
+/src/lab05/stored_data/odom.npy
