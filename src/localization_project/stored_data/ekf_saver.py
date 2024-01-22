@@ -26,7 +26,7 @@ class ErrorMetricsCalculator:
         se_xy = np.square(e_xy)
         mse_xy = np.sum(se_xy)/N
         rmse_xy = np.sqrt(mse_xy)
-
+        print("_____________________odom_xy_____________________", odom_xy)
         e_yaw = odom_yaw-ground_yaw
         se_yaw = np.square(e_yaw)
         mse_yaw = np.sum(se_yaw)/N
@@ -41,7 +41,7 @@ class ErrorMetricsCalculator:
 
         # Initialize total distance
         TDT_odom = 0.0
-
+        final_position = e_xy[-1]
     # Iterate through points and calculate distances
         for i in range(0, N-1):
 
@@ -50,7 +50,7 @@ class ErrorMetricsCalculator:
             distance = np.sqrt(delta_x**2 + delta_y**2)
             TDT_odom += distance
 
-        e_p_odom = TCE_odom[0]/TDT_odom
+        e_p_odom = final_position/TDT_odom
 
         self.e_odom = np.array([e_xy, e_yaw])
         self.odom_metrics_results = [RMSE_odom, MAE_odom, TCE_odom, e_p_odom]
@@ -87,7 +87,7 @@ class ErrorMetricsCalculator:
         filter_y = filter_xy[:, -1]
         # Initialize total distance
         TDT_filter = 0.0
-
+        final_position = e_xy[-1]
     # Iterate through points and calculate distances
         for i in range(0, N-1):
 
@@ -98,9 +98,9 @@ class ErrorMetricsCalculator:
 
         print("Total Distance Traveled filter:", TDT_filter)
 
-        e_p_filter = TCE_filter[0]/TDT_filter
+        e_p_filter = final_position/TDT_filter
 
-        self.filter_metrics_results = [
+        self.filter_metrics_results = [  
             RMSE_filter, MAE_filter, TCE_filter, e_p_filter]
         self.e_filter = np.array([e_xy, e_yaw])
         return self.filter_metrics_results, self.e_filter

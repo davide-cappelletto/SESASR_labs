@@ -1,0 +1,25 @@
+% ERROR METRICS FOR /diff_drive_controller/odom AND /odometry/filtererd %
+ [xy position errors, yaw errors]
+odom_metric:
+
+> RMSE_odom = [0.0019501092201364475, 0.0008186100906782255]
+> MAE_odom = [0.003662323734817933, 0.0031099335133545347]
+> Total cumulative error odom (TCE_odom) = [3.5626712635044555, 1.0674447422068338]
+> %err final pos w.r.t. the total distance = 0.0006013353497145958
+
+filter_metric:
+
+> RMSE_filter = [0.06855637606791937, 0.043940405234420325]
+> MAE_filter = [0.5450581790750851, 0.2116876065740448]
+> Total cumulative error filter (TCE_filter) = [71.50205213216233, 53.44156530856581]
+> %err final pos w.r.t. the total distance = 0.003619965053639422
+
+odom shape (2055, 3)
+_____________________odom_xy_____________________ [[-2.06369563e+00 -4.92183278e-05]
+ [-2.06386062e+00 -4.94759743e-05]
+ [-2.06402590e+00 -4.97347781e-05]
+ ...
+ [-4.29376982e-01  4.06949716e-01]
+ [-4.33044415e-01  4.07066191e-01]
+ [-4.36712041e-01  4.07182660e-01]]
+Total Distance Traveled filter: 15.829544899322253
