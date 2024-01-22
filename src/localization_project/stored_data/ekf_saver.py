@@ -26,7 +26,7 @@ class ErrorMetricsCalculator:
         se_xy = np.square(e_xy)
         mse_xy = np.sum(se_xy)/N
         rmse_xy = np.sqrt(mse_xy)
-        print(e_xy)
+        print("_____________________odom_xy_____________________", odom_xy)
         e_yaw = odom_yaw-ground_yaw
         se_yaw = np.square(e_yaw)
         mse_yaw = np.sum(se_yaw)/N

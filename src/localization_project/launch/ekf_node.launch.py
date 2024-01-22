@@ -35,7 +35,7 @@ def generate_launch_description():
     )
 
     timer_shutdown = TimerAction(
-        period=10.0,
+        period=300.0,
         actions=[
             EmitEvent(event=Shutdown(reason="Timer expired")),
         ],
@@ -50,9 +50,12 @@ def generate_launch_description():
     rosbag_record_cmd = ExecuteProcess(
         cmd = ["ros2", "bag", "record", "-o", "data", 
                "/diff_drive_controller/odom", "/ground_truth", "/ekf" ],
-        cwd = PathJoinSubstitution(['/home/giuseppe-deninarivera/LABS/sesasr_labs/src', LaunchConfiguration('rosbag_output_dir')]),
+        cwd = PathJoinSubstitution(['/home/giuseppe-deninarivera/sesasr_labs/src', LaunchConfiguration('rosbag_output_dir')]),
         output = "screen",
     )
-    
+    on_shutdown_handler = RegisterEventHandler(event_handler=OnProcessExit(
+        target_action=ekf_node,
+        on_exit=[EmitEvent(event=Shutdown(reason="Timer expired"))]),
+    )
 
     return LaunchDescription([ekf_node, rosbag_output_dir, rosbag_record_cmd, on_shutdown_handler, timer_shutdown])
