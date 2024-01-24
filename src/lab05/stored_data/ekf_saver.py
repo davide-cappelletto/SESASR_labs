@@ -136,6 +136,7 @@ class ErrorMetricsCalculator:
         plt.figure(figsize=(10,5))
         plt.plot(self.odom_data[:,0], self.odom_data[:,1], label='odom trajectory', linestyle='-', color='b')
         plt.plot(self.filter_data[:,0], self.filter_data[:,1], label='filter trajectory', linestyle='-', color='r')
+        plt.plot(self.ground_truth_data[:,0], self.ground_truth_data[:,1], label='ground truth trajectory', linestyle='-', color='g')
         plt.title('Trajectories')
         plt.xlabel('x')
         plt.ylabel('y')
