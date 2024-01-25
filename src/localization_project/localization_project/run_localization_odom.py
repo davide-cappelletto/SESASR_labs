@@ -30,15 +30,15 @@ class RunLocalizationOdomNode(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('ekf_period_s', 0.1),
+                ('ekf_period_s', 0.01),
                 ('initial_pose', [-2.0, 0.0, 0.0]),
                 ('initial_covariance', [
-                 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]),
+                 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001]),
                 ('landmarks', [-1.1, -1.1, -1.1, 0.0, -1.1, 1.1, 0.0, -
                  1.1, 0.0, 0.0, 0.0, 1.1, 1.1, -1.1, 1.1, 0.0, 1.1, 1.1]),
-                ('std_rot1', 0.1),
-                ('std_transl', 1.0),
-                ('std_rot2', 0.1),
+                ('std_rot1', 1.0),
+                ('std_transl', 0.05),
+                ('std_rot2', 1.0),
                 ('std_lin_vel', 0.1),
                 ('std_ang_vel', 1.0),
                 # da consegna
