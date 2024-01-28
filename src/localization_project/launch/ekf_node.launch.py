@@ -29,13 +29,13 @@ def generate_launch_description():
                                    "ekf_node.yaml"])
     ekf_node = Node(
         package="localization_project",
-        executable="EKF_node",
+        executable="run_localization_odom",
         output="screen",
         parameters=[config],
     )
 
     timer_shutdown = TimerAction(
-        period=300.0,
+        period=150.0,
         actions=[
             EmitEvent(event=Shutdown(reason="Timer expired")),
         ],

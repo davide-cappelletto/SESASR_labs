@@ -8,3 +8,4 @@ log/
 /src/lab05/stored_data/filter.npy
 /src/lab05/stored_data/ground_truth.npy
 /src/lab05/stored_data/odom.npy
+/src/localization_project/testing_material
